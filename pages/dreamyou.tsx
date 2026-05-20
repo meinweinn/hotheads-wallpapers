@@ -49,7 +49,7 @@ const DreamYou: NextPage = () => {
         className="bg-button bg-cover w-[171.5px] h-[56px] text-xs uppercase opacity-80 hover:opacity-100 transition-opacity"
         onClick={openX}
       >
-        Open in X
+        dream you.
       </button>
       <a
         className="text-xs text-custom-light-red underline underline-offset-4"
