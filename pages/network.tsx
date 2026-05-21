@@ -95,9 +95,18 @@ const Network: NextPage = () => {
                   tabIndex={0}
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <h3 className="text-xl md:text-2xl text-transparent bg-clip-text bg-white-text-gradient">
-                      $BRENT
-                    </h3>
+                    <div className="flex items-center gap-3">
+                      <Image
+                        src="/images/brent.png"
+                        alt="$BRENT"
+                        width={44}
+                        height={44}
+                        className="rounded-full border-2 border-custom-yellow object-cover"
+                      />
+                      <h3 className="text-xl md:text-2xl text-transparent bg-clip-text bg-white-text-gradient">
+                        $BRENT
+                      </h3>
+                    </div>
                     <div className="text-custom-green text-[10px] md:text-xs drop-shadow-[0_0_8px_rgba(86,188,120,0.9)]">
                       PAID
                     </div>
@@ -109,26 +118,34 @@ const Network: NextPage = () => {
                           <span className="font-primary uppercase text-custom-yellow">
                             Launch Time
                           </span>
-                          <p className="pt-2">Info pending.</p>
+                          <p className="pt-2">April 7, 2026</p>
                         </div>
                         <div className="flex flex-col md:flex-row gap-3">
                           <a
-                            className="bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
+                            className="bg-button bg-cover w-[171.5px] h-[56px] opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
                             href="#"
+                            aria-label="X Socials"
                           >
-                            X Socials
+                            <Image
+                              src="/images/twitter.png"
+                              alt=""
+                              width={25}
+                              height={25}
+                            />
                           </a>
                           <a
-                            className="bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
+                            className="bg-button bg-cover w-[171.5px] h-[56px] opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center text-lg text-custom-yellow"
                             href="#"
+                            aria-label="Pump.fun"
                           >
-                            Pump.fun
+                            P
                           </a>
                           <a
-                            className="bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
+                            className="bg-button bg-cover w-[171.5px] h-[56px] opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center text-lg text-sky-300"
                             href="#"
+                            aria-label="Telegram"
                           >
-                            Telegram
+                            TG
                           </a>
                         </div>
                         <div className="flex flex-col gap-3 font-daysOne normal-case">
