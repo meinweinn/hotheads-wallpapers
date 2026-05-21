@@ -25,7 +25,9 @@ const InventoryItem: FC<InventoryItemProps> = (props: InventoryItemProps) => {
       : "Memes";
   };
 
-  const formattedSrc = `/images/hotheads/hh_${index}/${folder()}/${src}`;
+  const formattedSrc = src.startsWith("/images/")
+    ? src
+    : `/images/hotheads/hh_${index}/${folder()}/${src}`;
   // console.log("src ", src);
   return (
     <div className={`self-start`}>
