@@ -122,7 +122,7 @@ const Network: NextPage = () => {
                         </div>
                         <div className="flex flex-row flex-wrap gap-3">
                           <a
-                            className="bg-button bg-cover w-14 h-14 opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
+                            className="w-14 h-14 opacity-80 hover:opacity-100 transition-all flex items-center justify-center bg-custom-black border-4 border-custom-light-gray-2 hover:border-custom-yellow"
                             href="#"
                             aria-label="X Socials"
                           >
@@ -134,7 +134,7 @@ const Network: NextPage = () => {
                             />
                           </a>
                           <a
-                            className="bg-button bg-cover w-14 h-14 opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
+                            className="w-14 h-14 opacity-80 hover:opacity-100 transition-all flex items-center justify-center bg-custom-black border-4 border-custom-light-gray-2 hover:border-custom-yellow"
                             href="#"
                             aria-label="Pump.fun"
                           >
@@ -146,7 +146,7 @@ const Network: NextPage = () => {
                             />
                           </a>
                           <a
-                            className="bg-button bg-cover w-14 h-14 opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
+                            className="w-14 h-14 opacity-80 hover:opacity-100 transition-all flex items-center justify-center bg-custom-black border-4 border-custom-light-gray-2 hover:border-custom-yellow"
                             href="#"
                             aria-label="Telegram"
                           >
