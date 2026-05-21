@@ -6,7 +6,6 @@ const MoonIcon = dynamic(()=> import("./@icons/MoonIcon"))
 const ArrowIcon = dynamic(()=> import("./@icons/ArrowIcon"))
 const TwitterIcon = dynamic(()=> import("./@icons/TwitterIcon"))
 const DiscordIcon = dynamic(()=> import("./@icons/DiscordIcon"))
-const ExpIcon = dynamic(()=> import("./@icons/ExpIcon"))
 const ExchangeIcon = dynamic(()=> import("./@icons/ExchangeIcon"))
 const MenuIcon = dynamic(()=> import("./@icons/MenuIcon"))
 const CloseIcon = dynamic(()=> import("./@icons/CloseIcon"))
@@ -80,7 +79,6 @@ export {
   DiscordIcon,
   LoadCircle,
   ButtonBar,
-  ExpIcon,
   Navigation,
   MenuIcon,
   NavItem,
