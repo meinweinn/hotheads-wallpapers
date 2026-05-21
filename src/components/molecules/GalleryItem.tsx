@@ -1,7 +1,6 @@
 import { Dispatch, FC, SetStateAction, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ExchangeIcon } from "@components";
 
 interface GalleryItemProps {
   index: number;
@@ -44,9 +43,17 @@ const GalleryItem: FC<GalleryItemProps> = (props: GalleryItemProps) => {
         {url && (
           <div
             className="absolute top-1.5 right-1.5 md:top-2.5 md:right-2.5 cursor-pointer hover:outline hover:outline-white rounded-full transition-all duration-100"
-            onClick={() => window.open(url, "_blank", "noreferrer")}
+            onClick={(event) => {
+              event.stopPropagation();
+              window.open(url, "_blank", "noreferrer");
+            }}
           >
-            <ExchangeIcon size={25} />
+            <Image
+              src="/images/twitter.png"
+              alt="Twitter"
+              width={25}
+              height={25}
+            />
           </div>
         )}
       </motion.div>
