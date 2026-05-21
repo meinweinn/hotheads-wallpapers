@@ -120,32 +120,42 @@ const Network: NextPage = () => {
                           </span>
                           <p className="pt-2">April 7, 2026</p>
                         </div>
-                        <div className="flex flex-col md:flex-row gap-3">
+                        <div className="flex flex-row flex-wrap gap-3">
                           <a
-                            className="bg-button bg-cover w-[171.5px] h-[56px] opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
+                            className="bg-button bg-cover w-14 h-14 opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
                             href="#"
                             aria-label="X Socials"
                           >
                             <Image
                               src="/images/twitter.png"
                               alt=""
-                              width={25}
-                              height={25}
+                              width={28}
+                              height={28}
                             />
                           </a>
                           <a
-                            className="bg-button bg-cover w-[171.5px] h-[56px] opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center text-lg text-custom-yellow"
+                            className="bg-button bg-cover w-14 h-14 opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
                             href="#"
                             aria-label="Pump.fun"
                           >
-                            P
+                            <Image
+                              src="/images/pumpfun.svg"
+                              alt=""
+                              width={31}
+                              height={31}
+                            />
                           </a>
                           <a
-                            className="bg-button bg-cover w-[171.5px] h-[56px] opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center text-lg text-sky-300"
+                            className="bg-button bg-cover w-14 h-14 opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
                             href="#"
                             aria-label="Telegram"
                           >
-                            TG
+                            <Image
+                              src="/images/telegram.svg"
+                              alt=""
+                              width={28}
+                              height={28}
+                            />
                           </a>
                         </div>
                         <div className="flex flex-col gap-3 font-daysOne normal-case">
