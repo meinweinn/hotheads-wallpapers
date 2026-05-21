@@ -15,7 +15,7 @@ const Network: NextPage = () => {
     twitterFollow: false,
   });
   const [formError, setFormError] = useState<string>("");
-  const [submitFeedback, setSubmitFeedback] = useState<string>("");
+  const [didSubmit, setDidSubmit] = useState<boolean>(false);
   const tabs: string[] = ["hub", "projects", "form"];
 
   const isFormComplete =
@@ -25,7 +25,6 @@ const Network: NextPage = () => {
     formData.twitterFollow;
 
   const handleViewRules = () => {
-    setSubmitFeedback("");
     if (!isFormComplete) {
       setFormError("Complete the form before viewing rules.");
       return;
@@ -35,7 +34,8 @@ const Network: NextPage = () => {
   };
 
   const handleSubmit = () => {
-    setSubmitFeedback("Application ready. Submission endpoint pending.");
+    setDidSubmit(true);
+    window.setTimeout(() => setDidSubmit(false), 1200);
   };
 
   return (
@@ -82,9 +82,78 @@ const Network: NextPage = () => {
             {tabId === 1 && (
               <motion.div
                 key="projects"
-                className="h-full w-full"
+                className="h-full w-full flex items-start justify-center px-1 md:px-8 py-4"
                 {...midExitAnimation}
-              />
+              >
+                <motion.div
+                  className="group w-full max-w-2xl border-[18px] border-transparent bg-custom-dark-gray px-4 py-4 md:px-6 md:py-5 transition-all duration-300"
+                  style={{
+                    borderImage: "url('/images/container.png') 200 round",
+                  }}
+                  initial={false}
+                  whileHover={{ scale: 1.01 }}
+                  tabIndex={0}
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <h3 className="text-xl md:text-2xl text-transparent bg-clip-text bg-white-text-gradient">
+                      $BRENT
+                    </h3>
+                    <div className="text-custom-green text-[10px] md:text-xs drop-shadow-[0_0_8px_rgba(86,188,120,0.9)]">
+                      PAID
+                    </div>
+                  </div>
+                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] group-focus:grid-rows-[1fr] transition-all duration-500 ease-in-out">
+                    <div className="overflow-hidden">
+                      <div className="pt-5 flex flex-col gap-5 text-xs md:text-sm">
+                        <div className="font-daysOne normal-case text-custom-light-gray-2">
+                          <span className="font-primary uppercase text-custom-yellow">
+                            Launch Time
+                          </span>
+                          <p className="pt-2">Info pending.</p>
+                        </div>
+                        <div className="flex flex-col md:flex-row gap-3">
+                          <a
+                            className="bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
+                            href="#"
+                          >
+                            X Socials
+                          </a>
+                          <a
+                            className="bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
+                            href="#"
+                          >
+                            Pump.fun
+                          </a>
+                          <a
+                            className="bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
+                            href="#"
+                          >
+                            Telegram
+                          </a>
+                        </div>
+                        <div className="flex flex-col gap-3 font-daysOne normal-case">
+                          <div className="flex items-center justify-between border-2 border-custom-mid-gray bg-custom-black px-4 py-3">
+                            <span className="font-primary uppercase text-xs">
+                              5M
+                            </span>
+                            <span className="text-custom-green text-lg leading-none">
+                              &#10003;
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between border-2 border-custom-mid-gray bg-custom-black px-4 py-3">
+                            <span className="font-primary uppercase text-xs">
+                              10M
+                            </span>
+                            <span className="text-custom-light-gray text-lg leading-none">
+                              -
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
             )}
             {tabId === 2 && (
               <motion.div
@@ -245,18 +314,17 @@ const Network: NextPage = () => {
                       </div>
                       <div className="flex justify-center pt-2">
                         <button
-                          className="bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase opacity-80 hover:opacity-100 transition-opacity"
+                          className={`bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase transition-all ${
+                            didSubmit
+                              ? "opacity-100 saturate-200 drop-shadow-[0_0_12px_rgba(86,188,120,0.9)] text-custom-green"
+                              : "opacity-80 hover:opacity-100"
+                          }`}
                           type="button"
                           onClick={handleSubmit}
                         >
-                          Submit
+                          {didSubmit ? "Submitted" : "Submit"}
                         </button>
                       </div>
-                      {submitFeedback && (
-                        <div className="text-custom-green text-center text-[10px] uppercase font-primary">
-                          {submitFeedback}
-                        </div>
-                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>
