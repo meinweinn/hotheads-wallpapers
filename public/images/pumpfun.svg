@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Pump.fun">
+  <g transform="rotate(-24 64 64)">
+    <rect x="22" y="39" width="84" height="50" rx="25" fill="#92F2C4" stroke="#053B2D" stroke-width="8"/>
+    <path d="M64 39v50" stroke="#053B2D" stroke-width="8" stroke-linecap="round"/>
+    <path d="M41 53c9-7 19-7 29 0" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity=".85"/>
+    <path d="M75 75c7 4 15 3 22-3" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity=".75"/>
+  </g>
+</svg>
