@@ -133,7 +133,7 @@ const InventoryItems: FC<Props> = (props: Props) => {
                     key={`${Math.random()} ${item.id}`}
                     src={src}
                     setImageModal={setImageModal}
-                    index={selectedToken > -1 ? selectedToken : item.id}
+                    index={item.id}
                     activeTab={activeTab}
                   />
                 )
