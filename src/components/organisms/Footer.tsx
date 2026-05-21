@@ -1,22 +1,10 @@
-import { FC, useState } from "react";
-import { ExpIcon } from "@components";
+import { FC } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { midEnterAnimation } from "@constants";
 import Link from "next/link";
 
 const Footer: FC = () => {
-  const [animate, setAnimate] = useState<boolean>(false);
-
-  const containerAnimation = {
-    animate: {
-      opacity: 1,
-      rotate: animate ? -90 : 0,
-    },
-    exit: { opacity: 0 },
-    transition: { duration: 0.5, ease: "easeInOut" },
-  };
-
   return (
     <motion.footer
       className="px-8 py-4 lg:pb-0 abolute bottom-0 bg-transparent w-screen"
@@ -89,20 +77,7 @@ const Footer: FC = () => {
             </Link>
           </div>
         </div>
-        <motion.div
-          className="md:w-1/3 flex justify-end"
-          {...midEnterAnimation}
-        >
-          {/* exp */}
-          <a
-            className="cursor-pointer whitespace-nowrap"
-            href="https://twitter.com/expstudio_"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <ExpIcon color={"white"} />
-          </a>
-        </motion.div>
+        <div className="hidden md:block md:w-1/3" />
       </div>
     </motion.footer>
   );
