@@ -486,18 +486,18 @@ export const collections: Collection[] = [
     name:"Sentinel"
   },
   /* 80's */
-  // {
-  //   id: 80,
-  //   src:"/images/hotheads/hh_80/PFP/image.webp",
-  //   url:"",
-    // name:""
-  // },
-  // {
-  //   id: 81,
-  //   src:"/images/hotheads/hh_81/PFP/image.webp",
-  //   url:"",
-    // name:""
-  // },
+  {
+    id: 80,
+    src:"/images/hotheads/hh_80/PFP/image.png",
+    url:"",
+    name:""
+  },
+  {
+    id: 81,
+    src:"/images/hotheads/hh_81/PFP/image.png",
+    url:"",
+    name:""
+  },
   // {
   //   id: 82,
   //   src:"/images/hotheads/hh_82/PFP/image.webp",
