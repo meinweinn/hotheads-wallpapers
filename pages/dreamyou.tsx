@@ -2,9 +2,9 @@ import type { NextPage } from "next";
 import { useCallback, useEffect } from "react";
 
 const TWEET_TEXT =
-  "dream me\nhttps://x.com/HotHeadsNFT/status/2055340900901912864";
+  "dream me\nhttps://x.com/hotheadsnft/status/2057492220756857268";
 const WEB_INTENT_URL =
-  "https://x.com/intent/post?text=dream%20me%0Ahttps%3A%2F%2Fx.com%2FHotHeadsNFT%2Fstatus%2F2055340900901912864";
+  "https://x.com/intent/post?text=dream%20me%0Ahttps%3A%2F%2Fx.com%2Fhotheadsnft%2Fstatus%2F2057492220756857268";
 const APP_INTENT_URL = `twitter://post?message=${encodeURIComponent(
   TWEET_TEXT
 )}`;
