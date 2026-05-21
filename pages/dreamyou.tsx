@@ -43,7 +43,7 @@ const DreamYou: NextPage = () => {
   }, [openX]);
 
   return (
-    <main className="min-h-screen bg-custom-black text-gray-100 font-primary flex flex-col items-center justify-center gap-6 px-6 text-center">
+    <main className="min-h-screen bg-main bg-cover bg-fixed bg-custom-black text-gray-100 font-primary flex flex-col items-center justify-center gap-6 px-6 text-center">
       <button
         type="button"
         className="bg-button bg-cover w-[171.5px] h-[56px] text-xs uppercase opacity-80 hover:opacity-100 transition-opacity"
