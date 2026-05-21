@@ -8,9 +8,10 @@ interface Props {
   children: ReactNode;
   href: string;
   disabled?: boolean;
+  featured?: boolean;
 }
 const NavItem: FC<Props> = (props: Props) => {
-  const { children, href, disabled = false } = props;
+  const { children, href, disabled = false, featured = false } = props;
 
   const router = useRouter();
   const isCurrent = router.pathname === href;
@@ -30,7 +31,9 @@ const NavItem: FC<Props> = (props: Props) => {
         <DisabledItem />
       ) : (
         <Link href={href}>
-          <Item isCurrent={isCurrent}>{children}</Item>
+          <Item isCurrent={isCurrent} featured={featured}>
+            {children}
+          </Item>
         </Link>
       )}
     </>
@@ -40,9 +43,10 @@ const NavItem: FC<Props> = (props: Props) => {
 interface ItemProps {
   children: ReactNode;
   isCurrent: boolean;
+  featured: boolean;
 }
 const Item: FC<ItemProps> = (props: ItemProps) => {
-  const { children, isCurrent } = props;
+  const { children, isCurrent, featured } = props;
   const [didHover, setDidHover] = useState<boolean>(false);
   return (
     <div
@@ -63,7 +67,11 @@ const Item: FC<ItemProps> = (props: ItemProps) => {
       </div>
       <div
         className={`text-transparent bg-clip-text transition-all duration-500 my-5 p-0 ${
-          isCurrent
+          featured
+            ? isCurrent
+              ? "bg-gradient-to-t from-custom-yellow to-custom-light-red cursor-default drop-shadow-[0_0_8px_rgba(255,186,33,0.5)]"
+              : "bg-gradient-to-t from-custom-yellow to-white hover:from-custom-light-red hover:to-custom-yellow cursor-pointer drop-shadow-[0_0_6px_rgba(255,186,33,0.35)]"
+            : isCurrent
             ? "bg-red-text-gradient cursor-default"
             : "bg-white-text-gradient hover:to-red-600 cursor-pointer"
         }`}

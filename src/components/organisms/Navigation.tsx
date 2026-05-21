@@ -28,6 +28,9 @@ const Navigation: FC = () => {
                 <NavItem href="/about">About</NavItem>
                 <NavItem href="/gallery">Gallery</NavItem>
                 <NavItem href="/inventory">Inventory</NavItem>
+                <NavItem href="/network" featured={true}>
+                  Network
+                </NavItem>
                 <NavItem href="/merch" disabled={true}>
                   Merch
                 </NavItem>
