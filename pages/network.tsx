@@ -8,7 +8,35 @@ import { midExitAnimation } from "@constants";
 const Network: NextPage = () => {
   const [tabId, setTabId] = useState<number>(0);
   const [showRules, setShowRules] = useState<boolean>(false);
+  const [formData, setFormData] = useState({
+    telegram: "",
+    twitter: "",
+    wallet: "",
+    twitterFollow: false,
+  });
+  const [formError, setFormError] = useState<string>("");
+  const [submitFeedback, setSubmitFeedback] = useState<string>("");
   const tabs: string[] = ["hub", "projects", "form"];
+
+  const isFormComplete =
+    formData.telegram.trim().length > 0 &&
+    formData.twitter.trim().length > 0 &&
+    formData.wallet.trim().length > 0 &&
+    formData.twitterFollow;
+
+  const handleViewRules = () => {
+    setSubmitFeedback("");
+    if (!isFormComplete) {
+      setFormError("Complete the form before viewing rules.");
+      return;
+    }
+    setFormError("");
+    setShowRules(true);
+  };
+
+  const handleSubmit = () => {
+    setSubmitFeedback("Application ready. Submission endpoint pending.");
+  };
 
   return (
     <PageLayout header="Network">
@@ -23,7 +51,7 @@ const Network: NextPage = () => {
                 {...midExitAnimation}
               >
                 <motion.div
-                  className="relative w-[260px] max-w-full h-[102px] md:w-[360px] md:h-[141px] drop-shadow-[0_0_22px_rgba(255,186,33,0.65)]"
+                  className="relative w-[260px] max-w-full h-[102px] md:w-[360px] md:h-[141px] drop-shadow-[0_0_24px_rgba(255,87,34,0.75)]"
                   animate={{ y: [0, -10, 0] }}
                   transition={{
                     duration: 3.2,
@@ -82,6 +110,13 @@ const Network: NextPage = () => {
                           name="telegram"
                           placeholder="@username"
                           type="text"
+                          value={formData.telegram}
+                          onChange={(event) =>
+                            setFormData((prevState) => ({
+                              ...prevState,
+                              telegram: event.target.value,
+                            }))
+                          }
                         />
                       </label>
                       <label className="flex flex-col gap-2">
@@ -91,6 +126,13 @@ const Network: NextPage = () => {
                           name="twitter"
                           placeholder="@username"
                           type="text"
+                          value={formData.twitter}
+                          onChange={(event) =>
+                            setFormData((prevState) => ({
+                              ...prevState,
+                              twitter: event.target.value,
+                            }))
+                          }
                         />
                       </label>
                       <label className="flex flex-col gap-2">
@@ -100,6 +142,13 @@ const Network: NextPage = () => {
                           name="wallet"
                           placeholder="Wallet address"
                           type="text"
+                          value={formData.wallet}
+                          onChange={(event) =>
+                            setFormData((prevState) => ({
+                              ...prevState,
+                              wallet: event.target.value,
+                            }))
+                          }
                         />
                       </label>
                       <label className="flex items-start gap-3 leading-6 text-left">
@@ -107,14 +156,30 @@ const Network: NextPage = () => {
                           className="mt-1 h-4 w-4 accent-custom-yellow"
                           name="twitterFollow"
                           type="checkbox"
+                          checked={formData.twitterFollow}
+                          onChange={(event) =>
+                            setFormData((prevState) => ({
+                              ...prevState,
+                              twitterFollow: event.target.checked,
+                            }))
+                          }
                         />
                         <span>I confirm I follow on Twitter</span>
                       </label>
+                      {formError && (
+                        <div className="text-custom-light-red text-center text-[10px]">
+                          {formError}
+                        </div>
+                      )}
                       <div className="flex flex-col md:flex-row gap-3 justify-center pt-2">
                         <button
-                          className="bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase opacity-80 hover:opacity-100 transition-opacity"
+                          className={`bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase transition-opacity ${
+                            isFormComplete
+                              ? "opacity-80 hover:opacity-100"
+                              : "opacity-40"
+                          }`}
                           type="button"
-                          onClick={() => setShowRules(true)}
+                          onClick={handleViewRules}
                         >
                           View Rules
                         </button>
@@ -182,10 +247,16 @@ const Network: NextPage = () => {
                         <button
                           className="bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase opacity-80 hover:opacity-100 transition-opacity"
                           type="button"
+                          onClick={handleSubmit}
                         >
                           Submit
                         </button>
                       </div>
+                      {submitFeedback && (
+                        <div className="text-custom-green text-center text-[10px] uppercase font-primary">
+                          {submitFeedback}
+                        </div>
+                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>
