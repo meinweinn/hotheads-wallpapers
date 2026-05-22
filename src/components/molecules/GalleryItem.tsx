@@ -42,18 +42,20 @@ const GalleryItem: FC<GalleryItemProps> = (props: GalleryItemProps) => {
         <Image src={src} alt={`HH-${index}`} width={200} height={200} />
         {url && (
           <div
-            className="absolute top-1.5 right-1.5 md:top-2.5 md:right-2.5 cursor-pointer rounded-full transition-all duration-200 bg-custom-black/85 border-2 border-custom-light-gray-2 hover:border-custom-yellow hover:shadow-[0_0_10px_rgba(255,186,33,0.65)] p-1.5"
+            className="absolute top-1.5 right-1.5 md:top-2.5 md:right-2.5 cursor-pointer rounded-full transition-all duration-200 bg-[#0b0b0be6] border-2 border-white/70 hover:border-custom-yellow shadow-[0_4px_14px_rgba(0,0,0,0.85)] hover:shadow-[0_0_14px_rgba(255,186,33,0.75)] p-1.5 backdrop-blur-[2px]"
             onClick={(event) => {
               event.stopPropagation();
               window.open(url, "_blank", "noreferrer");
             }}
           >
-            <Image
-              src="/images/x-logo.svg"
-              alt="X"
-              width={17}
-              height={17}
-            />
+            <div className="rounded-full bg-black/70 ring-1 ring-white/25 p-[3px]">
+              <Image
+                src="/images/x-logo.svg"
+                alt="X"
+                width={15}
+                height={15}
+              />
+            </div>
           </div>
         )}
       </motion.div>
