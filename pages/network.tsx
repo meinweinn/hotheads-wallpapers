@@ -5,6 +5,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { midExitAnimation } from "@constants";
 
+type SubmitState = "idle" | "submitting" | "submitted" | "failed";
+
 const Network: NextPage = () => {
   const [tabId, setTabId] = useState<number>(0);
   const [showRules, setShowRules] = useState<boolean>(false);
@@ -15,7 +17,7 @@ const Network: NextPage = () => {
     twitterFollow: false,
   });
   const [formError, setFormError] = useState<string>("");
-  const [didSubmit, setDidSubmit] = useState<boolean>(false);
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const tabs: string[] = ["hub", "projects", "form"];
 
   const isFormComplete =
@@ -33,9 +35,33 @@ const Network: NextPage = () => {
     setShowRules(true);
   };
 
-  const handleSubmit = () => {
-    setDidSubmit(true);
-    window.setTimeout(() => setDidSubmit(false), 1200);
+  const handleSubmit = async () => {
+    if (!isFormComplete || submitState === "submitting") {
+      return;
+    }
+
+    setSubmitState("submitting");
+
+    try {
+      const response = await fetch("/api/network-application", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Application request failed.");
+      }
+
+      setSubmitState("submitted");
+      window.setTimeout(() => setSubmitState("idle"), 1200);
+    } catch (error) {
+      console.error(error);
+      setSubmitState("failed");
+      window.setTimeout(() => setSubmitState("idle"), 1600);
+    }
   };
 
   return (
@@ -342,14 +368,25 @@ const Network: NextPage = () => {
                       <div className="flex justify-center pt-2">
                         <button
                           className={`bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase transition-all ${
-                            didSubmit
+                            submitState === "submitted"
                               ? "opacity-100 saturate-200 drop-shadow-[0_0_12px_rgba(86,188,120,0.9)] text-custom-green"
+                              : submitState === "failed"
+                              ? "opacity-100 saturate-150 drop-shadow-[0_0_12px_rgba(249,94,101,0.8)] text-custom-light-red"
+                              : submitState === "submitting"
+                              ? "opacity-100 text-custom-yellow"
                               : "opacity-80 hover:opacity-100"
                           }`}
                           type="button"
                           onClick={handleSubmit}
+                          disabled={submitState === "submitting"}
                         >
-                          {didSubmit ? "Submitted" : "Submit"}
+                          {submitState === "submitted"
+                            ? "Submitted"
+                            : submitState === "failed"
+                            ? "Failed"
+                            : submitState === "submitting"
+                            ? "Submitting..."
+                            : "Submit"}
                         </button>
                       </div>
                     </motion.div>
