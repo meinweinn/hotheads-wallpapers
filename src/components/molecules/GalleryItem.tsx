@@ -49,8 +49,8 @@ const GalleryItem: FC<GalleryItemProps> = (props: GalleryItemProps) => {
             }}
           >
             <Image
-              src="/images/twitter.png"
-              alt="Twitter"
+              src="/images/x-logo.svg"
+              alt="X"
               width={25}
               height={25}
             />

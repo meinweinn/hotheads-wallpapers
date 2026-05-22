@@ -41,15 +41,15 @@ const Footer: FC = () => {
           </div>
           <div className="cursor-pointer">
             <a
-              href="https://twitter.com/HotHeadsNFT"
+              href="https://x.com/HotHeadsNFT"
               rel="noreferrer"
               target="_blank"
             >
               <Image
-                src="/images/logo-twitter.png"
-                alt="Twitter"
-                width={213 / 7}
-                height={213 / 7}
+                src="/images/x-logo.svg"
+                alt="X"
+                width={32}
+                height={32}
                 className="transition-opacity duration-300 "
               />
             </a>

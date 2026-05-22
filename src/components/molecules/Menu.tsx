@@ -107,7 +107,7 @@ const menuData = [
         isInternal: false,
       },
       {
-        title: "Twitter",
+        title: "X",
         description: "Slimes can be social too, right?",
         src: "https://twitter.com/MySlimes_",
         isInternal: false,

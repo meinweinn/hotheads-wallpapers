@@ -10,15 +10,15 @@ const TwitterIcon: FC<Props> = (props: Props) => {
   const {
     color = "white",
     size = 26,
-    url = "https://twitter.com/HotHeadsNFT",
+    url = "https://x.com/HotHeadsNFT",
   } = props;
   return (
     <a href={url} rel="noreferrer" target="_blank">
       <Image
-        src="/images/twitter.png"
+        src="/images/x-logo.svg"
         width={size}
         height={size}
-        alt="discord"
+        alt="X"
       />
     </a>
   );

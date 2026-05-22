@@ -127,7 +127,7 @@ const Network: NextPage = () => {
                             aria-label="X Socials"
                           >
                             <Image
-                              src="/images/twitter.png"
+                              src="/images/x-logo.svg"
                               alt=""
                               width={28}
                               height={28}
@@ -216,7 +216,7 @@ const Network: NextPage = () => {
                         />
                       </label>
                       <label className="flex flex-col gap-2">
-                        Twitter Username
+                        X Username
                         <input
                           className="bg-custom-black border-2 border-custom-light-gray-2 rounded px-3 py-3 text-gray-100 outline-none focus:border-custom-yellow"
                           name="twitter"
@@ -260,7 +260,7 @@ const Network: NextPage = () => {
                             }))
                           }
                         />
-                        <span>I confirm I follow on Twitter</span>
+                        <span>I confirm I follow on X</span>
                       </label>
                       {formError && (
                         <div className="text-custom-light-red text-center text-[10px]">
@@ -313,7 +313,7 @@ const Network: NextPage = () => {
                           </li>
                           <li>
                             When the project reaches a market cap of 10 million,
-                            a post should be made on Twitter.
+                            a post should be made on X.
                           </li>
                           <li>
                             The project should be shared within Friends & Family
