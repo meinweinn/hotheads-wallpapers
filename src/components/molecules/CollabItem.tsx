@@ -1,7 +1,7 @@
 import { Dispatch, FC, SetStateAction, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ExchangeIcon, TwitterIcon } from "@components";
+import { ExchangeIcon } from "@components";
 import { Collab } from "@types";
 
 interface CollabItemProps {
@@ -39,11 +39,8 @@ const CollabItem: FC<CollabItemProps> = (props: CollabItemProps) => {
             fill
           />
         )}
-        {item.url && item.twitter && (
+        {item.url && (
           <div className="absolute top-1.5 right-1.5 md:top-2.5 md:right-2.5 z-10 flex gap-1">
-            <div className=" transition-all duration-100` hover:outline hover:outline-white rounded-full">
-              <TwitterIcon url={item.twitter} />
-            </div>
             <div
               className={`cursor-pointer hover:outline hover:outline-white rounded-full transition-all duration-100`}
               onClick={() => window.open(item.url, "_blank", "noreferrer")}
