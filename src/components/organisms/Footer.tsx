@@ -15,12 +15,17 @@ const SocialLink: FC<SocialLinkProps> = ({ href, src, alt }) => {
       href={href}
       rel="noreferrer"
       target="_blank"
-      className="group relative flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-custom-light-gray-2 bg-custom-black/90 shadow-[0_0_0_rgba(255,186,33,0)] transition-all duration-200 hover:-translate-y-1 hover:border-custom-yellow hover:shadow-[0_0_14px_rgba(255,186,33,0.45)]"
+      className="flex h-12 w-12 items-center justify-center transition-all duration-200 hover:-translate-y-1"
       whileHover={{ scale: 1.06 }}
       transition={{ duration: 0.18, ease: "easeInOut" }}
     >
-      <span className="absolute inset-[5px] rounded-xl border border-custom-mid-gray transition-colors duration-200 group-hover:border-custom-yellow/70" />
-      <Image src={src} alt={alt} width={26} height={26} className="relative z-10" />
+      <Image
+        src={src}
+        alt={alt}
+        width={34}
+        height={34}
+        className="transition-all duration-200 hover:drop-shadow-[0_0_12px_rgba(255,186,33,0.65)] hover:saturate-150"
+      />
     </motion.a>
   );
 };
@@ -46,13 +51,13 @@ const Footer: FC = () => {
         <div className="md:w-1/3 flex flex-row items-center justify-center text-xs gap-4 lg:gap-6 font-daysOne text-gray-300">
           <SocialLink
             href="https://discord.gg/FhuqPwXmER"
-            src="/images/discord-mark.svg"
+            src="/images/logo-discord.png"
             alt="Discord"
           />
-          <SocialLink href="https://x.com/HotHeadsNFT" src="/images/x-logo.svg" alt="X" />
+          <SocialLink href="https://x.com/HotHeadsNFT" src="/images/logo-x.png" alt="X" />
           <SocialLink
             href="https://magiceden.io/"
-            src="/images/magiceden-mark.svg"
+            src="/images/logo-me.png"
             alt="Magic Eden"
           />
         </div>
