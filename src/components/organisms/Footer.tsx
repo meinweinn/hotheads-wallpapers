@@ -15,7 +15,7 @@ const SocialLink: FC<SocialLinkProps> = ({ href, src, alt }) => {
       href={href}
       rel="noreferrer"
       target="_blank"
-      className="flex h-12 w-12 items-center justify-center transition-all duration-200 hover:-translate-y-1"
+      className="pointer-events-auto flex h-12 w-12 items-center justify-center transition-all duration-200 hover:-translate-y-1"
       whileHover={{ scale: 1.06 }}
       transition={{ duration: 0.18, ease: "easeInOut" }}
     >
@@ -33,7 +33,7 @@ const SocialLink: FC<SocialLinkProps> = ({ href, src, alt }) => {
 const Footer: FC = () => {
   return (
     <motion.footer
-      className="px-8 py-4 lg:pb-0 abolute bottom-0 bg-transparent w-screen"
+      className="pointer-events-none px-8 py-4 lg:pb-0 abolute bottom-0 bg-transparent w-screen"
       {...midEnterAnimation}
     >
       <div className="flex flex-col md:flex-row items-center gap-4">

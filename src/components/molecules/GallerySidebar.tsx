@@ -42,7 +42,7 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
       {selectedItem && (
         <motion.div
           key={`gallery-sidebar-${selectedItem.id}`}
-          className="fixed inset-0 z-[70] bg-custom-black/55 backdrop-blur-sm"
+          className="fixed inset-0 z-[9999] bg-custom-black/55 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.25, ease: "easeInOut" } }}
