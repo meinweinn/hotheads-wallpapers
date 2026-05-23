@@ -7,7 +7,7 @@ interface Props extends SVGProps<SVGSVGElement> {
   size?: number;
 }
 
-const ExpIcon: FC<Props> = (props: Props) => {
+const MenuCloseIcon: FC<Props> = (props: Props) => {
   const {
     hoverColor = "white",
     className,
@@ -51,4 +51,4 @@ const ExpIcon: FC<Props> = (props: Props) => {
   );
 };
 
-export default ExpIcon;
+export default MenuCloseIcon;

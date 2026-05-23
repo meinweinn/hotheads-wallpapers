@@ -8,6 +8,8 @@ interface Props {
 
 const PageHead: FC<Props> = (props: Props) => {
   const { title, description } = props;
+  const siteUrl = "https://hotheads.xyz";
+  const metaImageUrl = `${siteUrl}/meta.png`;
 
   return (
     <Head>
@@ -19,14 +21,14 @@ const PageHead: FC<Props> = (props: Props) => {
       <meta name="twitter:site" content="@HotHeadsNFT" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content="https://hotheads.art/meta.png" />
-      <meta property="twitter:url" content={`https://hotheads.art`} />
+      <meta name="twitter:image" content={metaImageUrl} />
+      <meta property="twitter:url" content={siteUrl} />
       {/* <!-- Open Graph / Facebook --> */}
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://hotheads.art" />
+      <meta property="og:url" content={siteUrl} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content="/meta.png" />
+      <meta property="og:image" content={metaImageUrl} />
     </Head>
   );
 };

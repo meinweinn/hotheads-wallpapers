@@ -63,6 +63,9 @@ const Menu: FC<Props> = (props: Props) => {
                 <NavItem href="/about">About</NavItem>
                 <NavItem href="/gallery">Gallery</NavItem>
                 <NavItem href="/inventory">Inventory</NavItem>
+                <NavItem href="/network" featured={true}>
+                  Network
+                </NavItem>
                 <NavItem href="/merch" disabled={true}>
                   Merch
                 </NavItem>
@@ -104,7 +107,7 @@ const menuData = [
         isInternal: false,
       },
       {
-        title: "Twitter",
+        title: "X",
         description: "Slimes can be social too, right?",
         src: "https://twitter.com/MySlimes_",
         isInternal: false,

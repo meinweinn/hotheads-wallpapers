@@ -19,6 +19,23 @@ a {
 
 * {
   box-sizing: border-box;
+  -webkit-user-drag: none;
+}
+
+body {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input,
+textarea {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 @layer base {
@@ -108,4 +125,26 @@ p { }
 /* Handle on hover */
 .container-child::-webkit-scrollbar-thumb:hover {
   background: #202020;
+}
+
+.network-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #FFBA21 #121212;
+}
+
+.network-scroll::-webkit-scrollbar {
+  width: 12px;
+}
+
+.network-scroll::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+.network-scroll::-webkit-scrollbar-thumb {
+  background: #FFBA21;
+  border: 3px solid #121212;
+}
+
+.network-scroll::-webkit-scrollbar-thumb:hover {
+  background: #E77975;
 }

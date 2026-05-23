@@ -30,6 +30,7 @@
     "eslint-config-next": "13.0.3",
     "extract-colors": "^1.1.23",
     "framer-motion": "^7.6.6",
+    "googleapis": "^171.0.0",
     "html-to-image": "^1.10.8",
     "html2canvas": "^1.4.1",
     "lodash.debounce": "^4.0.8",

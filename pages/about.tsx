@@ -48,7 +48,7 @@ const About: NextPage = () => {
                 <ScrollItem key="info-4">
                   <ListItem>
                     Our primary methods of communication are Discord and
-                    Twitter.
+                    X.
                   </ListItem>
                 </ScrollItem>
               </motion.div>
