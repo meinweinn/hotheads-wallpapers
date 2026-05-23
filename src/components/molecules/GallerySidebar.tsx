@@ -34,7 +34,7 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
   const showTeamBadge = isTeamHolder(holderLabel);
   const openXLink = () => {
     if (!selectedItem?.url) return;
-    window.open(selectedItem.url, "_blank", "noopener,noreferrer");
+    window.open(selectedItem.url, "_blank");
   };
 
   return (
@@ -135,14 +135,19 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
                   </p>
                   {selectedItem.url ? (
                     <button
-                      className="relative z-20 mt-2 inline-flex w-fit cursor-pointer items-center gap-2 text-sm text-custom-yellow transition-colors hover:text-white"
+                      className="relative z-50 mt-2 inline-flex w-fit cursor-pointer touch-manipulation items-center gap-2 text-sm text-custom-yellow transition-colors hover:text-white"
                       type="button"
-                      onClick={(event) => {
+                      onPointerDown={(event) => {
+                        event.preventDefault();
                         event.stopPropagation();
                         openXLink();
                       }}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        event.stopPropagation();
+                      }}
                     >
-                      <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5">
+                      <span className="pointer-events-none flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5">
                         <Image
                           src="/images/x-logo.svg"
                           alt="X"
@@ -150,7 +155,7 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
                           height={14}
                         />
                       </span>
-                      {xHandle}
+                      <span className="pointer-events-none">{xHandle}</span>
                     </button>
                   ) : (
                     <p className="mt-2 text-sm text-custom-light-gray">
