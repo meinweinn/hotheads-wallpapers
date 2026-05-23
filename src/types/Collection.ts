@@ -4,4 +4,6 @@ export interface Collection {
   src: string;
   url: string;
   name: string;
+  holder?: string;
+  level?: string;
 }

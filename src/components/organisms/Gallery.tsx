@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 
 interface GalleryProps {
   collection: Collection[];
-  setImageModal: Dispatch<SetStateAction<string>>;
+  onSelect: Dispatch<SetStateAction<Collection | null>>;
 }
 
 const Gallery: FC<GalleryProps> = (props: GalleryProps) => {
-  const { collection, setImageModal } = props;
-  const [winWidth, winHeight] = useWindowSize();
+  const { collection, onSelect } = props;
+  const [winWidth] = useWindowSize();
 
   const container = {
     hidden: { opacity: 0 },
@@ -59,11 +59,8 @@ const Gallery: FC<GalleryProps> = (props: GalleryProps) => {
             >
               <GalleryItem
                 key={index}
-                index={index}
-                setImageModal={setImageModal}
-                src={item.src}
-                url={item.url}
-                name={item.name}
+                item={item}
+                onSelect={onSelect}
               />
             </ScrollItem>
           );

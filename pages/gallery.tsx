@@ -1,19 +1,30 @@
-import { PageLayout, TabBar, Modal, Collab, Gallery } from "@components";
-import { useState } from "react";
+import {
+  PageLayout,
+  TabBar,
+  Modal,
+  Collab,
+  Gallery,
+  GallerySidebar,
+} from "@components";
+import { useCallback, useState } from "react";
 import { NextPage } from "next";
 import { motion, AnimatePresence } from "framer-motion";
 import { midExitAnimation, collections, collabs } from "@constants";
 import Image from "next/image";
+import { Collection } from "@types";
 
 const Home: NextPage = () => {
   const [tabId, setTabId] = useState<number>(0);
   const [imageModal, setImageModal] = useState<string>("");
+  const [selectedItem, setSelectedItem] = useState<Collection | null>(null);
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
 
   const tabs: string[] = ["hot heads", "collabs"];
-  const handleTabChange = (tab: number) => {
+  const handleTabChange = useCallback((tab: number) => {
+    setSelectedItem(null);
+    setImageModal("");
     setTabId(tab);
-  };
+  }, []);
 
   return (
     <PageLayout header="Gallery">
@@ -25,10 +36,7 @@ const Home: NextPage = () => {
           <AnimatePresence mode="wait">
             {tabId === 0 ? (
               <motion.div {...midExitAnimation} key="hot-heads">
-                <Gallery
-                  collection={collections}
-                  setImageModal={setImageModal}
-                />
+                <Gallery collection={collections} onSelect={setSelectedItem} />
               </motion.div>
             ) : (
               <motion.div {...midExitAnimation} key="collab">
@@ -59,6 +67,7 @@ const Home: NextPage = () => {
           />
         )}
       </Modal>
+      <GallerySidebar selectedItem={selectedItem} close={setSelectedItem} />
     </PageLayout>
   );
 };
