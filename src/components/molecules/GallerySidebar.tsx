@@ -32,6 +32,10 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
   const holderLabel =
     selectedItem?.holder || (xHandle !== "Not linked" ? xHandle : "Unknown");
   const showTeamBadge = isTeamHolder(holderLabel);
+  const openXLink = () => {
+    if (!selectedItem?.url) return;
+    window.open(selectedItem.url, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <AnimatePresence mode="wait">
@@ -130,13 +134,12 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
                     X Link
                   </p>
                   {selectedItem.url ? (
-                    <a
-                      className="relative z-10 mt-2 inline-flex w-fit items-center gap-2 text-sm text-custom-yellow transition-colors hover:text-white"
-                      href={selectedItem.url}
-                      target="_blank"
-                      rel="noreferrer"
+                    <button
+                      className="relative z-20 mt-2 inline-flex w-fit cursor-pointer items-center gap-2 text-sm text-custom-yellow transition-colors hover:text-white"
+                      type="button"
                       onClick={(event) => {
                         event.stopPropagation();
+                        openXLink();
                       }}
                     >
                       <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5">
@@ -148,7 +151,7 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
                         />
                       </span>
                       {xHandle}
-                    </a>
+                    </button>
                   ) : (
                     <p className="mt-2 text-sm text-custom-light-gray">
                       Not linked
