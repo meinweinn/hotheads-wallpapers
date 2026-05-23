@@ -1,8 +1,8 @@
-import { CloseIcon } from "@components";
 import { Collection } from "@types";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { Dispatch, FC, SetStateAction, useEffect, useMemo } from "react";
+import CloseIcon from "../@icons/CloseIcon";
 
 interface GallerySidebarProps {
   selectedItem: Collection | null;
