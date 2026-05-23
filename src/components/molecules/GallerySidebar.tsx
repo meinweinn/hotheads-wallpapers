@@ -120,10 +120,13 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
                   </p>
                   {selectedItem.url ? (
                     <a
-                      className="mt-2 inline-flex items-center gap-2 text-sm text-custom-yellow transition-colors hover:text-white"
+                      className="relative z-10 mt-2 inline-flex w-fit items-center gap-2 text-sm text-custom-yellow transition-colors hover:text-white"
                       href={selectedItem.url}
                       target="_blank"
                       rel="noreferrer"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                      }}
                     >
                       <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5">
                         <Image
