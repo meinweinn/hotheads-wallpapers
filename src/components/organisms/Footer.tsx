@@ -56,7 +56,7 @@ const Footer: FC = () => {
           />
           <SocialLink href="https://x.com/HotHeadsNFT" src="/images/logo-x.png" alt="X" />
           <SocialLink
-            href="https://magiceden.io/"
+            href="https://magiceden.io/tr/marketplace/hot_heads"
             src="/images/logo-me.png"
             alt="Magic Eden"
           />
