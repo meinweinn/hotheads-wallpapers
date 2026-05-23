@@ -8,7 +8,7 @@ const holderById: Record<number, string> = {
   5: "akshay",
   6: "ToadWarrior",
   7: "Connor",
-  8: "Connor",
+  8: "0xMQQ",
   9: "Adman",
   10: "Connor",
   11: "Mazikeen",
@@ -40,7 +40,7 @@ const holderById: Record<number, string> = {
   37: "Netorious",
   38: "Serch45",
   39: "Katzzi",
-  40: "Douglas",
+  40: "huat",
   41: "Unknown",
   42: "Celshade",
   43: "Unknown",
@@ -136,8 +136,8 @@ const collectionItems: Collection[] = [
   {
     id: 8,
     src: "/images/hotheads/hothead_character_008.png",
-    url: "https://x.com/SerConnorr",
-    name: "Cherry",
+    url: "https://x.com/0xMQQ",
+    name: "0xMQQ",
   },
   {
     id: 9,
@@ -329,8 +329,8 @@ const collectionItems: Collection[] = [
   {
     id: 40,
     src: "/images/hotheads/hh_40/PFP/image.png",
-    url: "https://x.com/douglasrmccurdy",
-    name: "Santana",
+    url: "https://x.com/huatrabbit",
+    name: "huat",
   },
   {
     id: 41,
