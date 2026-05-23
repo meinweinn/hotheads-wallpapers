@@ -29,13 +29,16 @@ const GalleryItem: FC<GalleryItemProps> = (props: GalleryItemProps) => {
   };
 
   return (
-    <div className="relative flex flex-col items-center" key={id}>
+    <div
+      className="relative flex cursor-pointer flex-col items-center"
+      key={id}
+      onClick={() => onSelect(item)}
+    >
       <motion.div
-        className="medium-frame cursor-pointer relative"
+        className="medium-frame relative"
         key={id}
         whileHover={{ scale: 1.03 }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
-        onClick={() => onSelect(item)}
       >
         <Image src={src} alt={`HH-${id}`} width={200} height={200} />
         {url && (
