@@ -35,7 +35,10 @@ const GalleryItem: FC<GalleryItemProps> = (props: GalleryItemProps) => {
         key={id}
         whileHover={{ scale: 1.03 }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
-        onClick={() => onSelect(item)}
+        onClick={(event) => {
+          event.stopPropagation();
+          window.setTimeout(() => onSelect(item), 0);
+        }}
       >
         <Image src={src} alt={`HH-${id}`} width={200} height={200} />
         {url && (
