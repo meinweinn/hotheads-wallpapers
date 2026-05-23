@@ -21,6 +21,9 @@ const getXHandle = (url: string): string => {
   }
 };
 
+const isTeamHolder = (holder: string): boolean =>
+  ["connor", "mein", "fto"].includes(holder.trim().toLowerCase());
+
 const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
   const xHandle = useMemo(
     () => getXHandle(selectedItem?.url ?? ""),
@@ -28,6 +31,7 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
   );
   const holderLabel =
     selectedItem?.holder || (xHandle !== "Not linked" ? xHandle : "Unknown");
+  const showTeamBadge = isTeamHolder(holderLabel);
 
   return (
     <AnimatePresence mode="wait">
@@ -37,7 +41,7 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
           className="fixed inset-0 z-[70] bg-custom-black/55 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          exit={{ opacity: 0, transition: { duration: 0.25, ease: "easeInOut" } }}
           onClick={(event) => {
             if (event.target === event.currentTarget) {
               close(null);
@@ -49,7 +53,7 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
@@ -104,7 +108,14 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
                   <p className="font-primary text-[10px] uppercase text-custom-light-gray">
                     Holder
                   </p>
-                  <p className="mt-2 text-sm text-white">{holderLabel}</p>
+                  <div className="mt-2 flex flex-wrap items-center gap-2">
+                    <p className="text-sm text-white">{holderLabel}</p>
+                    {showTeamBadge && (
+                      <span className="rounded-full border border-custom-yellow/50 bg-custom-yellow/10 px-2.5 py-1 font-primary text-[9px] uppercase text-custom-yellow shadow-[0_0_10px_rgba(255,186,33,0.22)]">
+                        Team
+                      </span>
+                    )}
+                  </div>
                 </div>
                 <div className="rounded-[8px] border border-white/10 bg-[#161616] px-4 py-3">
                   <p className="font-primary text-[10px] uppercase text-custom-light-gray">
