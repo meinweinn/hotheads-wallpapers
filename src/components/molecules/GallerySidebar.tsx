@@ -38,6 +38,11 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              close(null);
+            }
+          }}
         >
           <motion.aside
             className="absolute right-0 top-0 flex h-full w-full max-w-[440px] flex-col overflow-hidden border-l border-white/10 bg-[#111111] shadow-[-24px_0_80px_rgba(0,0,0,0.65)]"
@@ -45,6 +50,7 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
+            onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
               <div className="flex flex-col gap-1">
