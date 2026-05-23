@@ -6,7 +6,7 @@ import {
   Gallery,
   GallerySidebar,
 } from "@components";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { NextPage } from "next";
 import { motion, AnimatePresence } from "framer-motion";
 import { midExitAnimation, collections, collabs } from "@constants";
@@ -20,11 +20,11 @@ const Home: NextPage = () => {
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
 
   const tabs: string[] = ["hot heads", "collabs"];
-  const handleTabChange = (tab: number) => {
+  const handleTabChange = useCallback((tab: number) => {
     setSelectedItem(null);
     setImageModal("");
     setTabId(tab);
-  };
+  }, []);
 
   return (
     <PageLayout header="Gallery">
