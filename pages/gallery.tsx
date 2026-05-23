@@ -35,10 +35,20 @@ const Home: NextPage = () => {
         <div className="container overflow-y-hidden lg:overflow-y-auto overflow-x-hidden h-full flex flex-col gap-10">
           <AnimatePresence mode="wait">
             {tabId === 0 ? (
-              <motion.div {...midExitAnimation} key="hot-heads">
-                <Gallery
-                  collection={collections}
-                  onSelect={setSelectedItem}
+              <motion.div
+                {...midExitAnimation}
+                key="hot-heads"
+                className="flex flex-col gap-6 lg:flex-row lg:items-start"
+              >
+                <div className="min-w-0 flex-1">
+                  <Gallery
+                    collection={collections}
+                    onSelect={setSelectedItem}
+                  />
+                </div>
+                <GallerySidebar
+                  selectedItem={selectedItem}
+                  close={setSelectedItem}
                 />
               </motion.div>
             ) : (
@@ -70,7 +80,6 @@ const Home: NextPage = () => {
           />
         )}
       </Modal>
-      <GallerySidebar selectedItem={selectedItem} close={setSelectedItem} />
     </PageLayout>
   );
 };
