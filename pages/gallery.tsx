@@ -1,17 +1,28 @@
-import { PageLayout, TabBar, Modal, Collab, Gallery } from "@components";
+import {
+  PageLayout,
+  TabBar,
+  Modal,
+  Collab,
+  Gallery,
+  GallerySidebar,
+} from "@components";
 import { useState } from "react";
 import { NextPage } from "next";
 import { motion, AnimatePresence } from "framer-motion";
 import { midExitAnimation, collections, collabs } from "@constants";
 import Image from "next/image";
+import { Collection } from "@types";
 
 const Home: NextPage = () => {
   const [tabId, setTabId] = useState<number>(0);
   const [imageModal, setImageModal] = useState<string>("");
+  const [selectedItem, setSelectedItem] = useState<Collection | null>(null);
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
 
   const tabs: string[] = ["hot heads", "collabs"];
   const handleTabChange = (tab: number) => {
+    setSelectedItem(null);
+    setImageModal("");
     setTabId(tab);
   };
 
@@ -27,7 +38,7 @@ const Home: NextPage = () => {
               <motion.div {...midExitAnimation} key="hot-heads">
                 <Gallery
                   collection={collections}
-                  setImageModal={setImageModal}
+                  onSelect={setSelectedItem}
                 />
               </motion.div>
             ) : (
@@ -59,6 +70,7 @@ const Home: NextPage = () => {
           />
         )}
       </Modal>
+      <GallerySidebar selectedItem={selectedItem} close={setSelectedItem} />
     </PageLayout>
   );
 };
