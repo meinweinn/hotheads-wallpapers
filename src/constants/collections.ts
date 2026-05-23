@@ -112,7 +112,7 @@ const collectionItems: Collection[] = [
   {
     id: 4,
     src: "/images/hotheads/hothead_character_004.png",
-    url: "https://x.com/rishirmittal",
+    url: "https://x.com/rishimittal",
     name: "Maui Waui",
   },
   {
@@ -451,7 +451,7 @@ const collectionItems: Collection[] = [
   {
     id: 60,
     src: "/images/hotheads/hh_60/PFP/image.png",
-    url: "https://x.com/rishirmittal",
+    url: "https://x.com/rishimittal",
     name: "Goku",
   },
   {
@@ -573,7 +573,7 @@ const collectionItems: Collection[] = [
   {
     id: 80,
     src:"/images/hotheads/hh_80/PFP/image.png",
-    url:"https://x.com/Lemmaxbt",
+    url:"https://x.com/lemmaxmr",
     name:""
   },
   {
