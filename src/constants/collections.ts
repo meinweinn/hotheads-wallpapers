@@ -18,7 +18,7 @@ const holderById: Record<number, string> = {
   15: "Lesta",
   16: "KidPaddle",
   17: "M51",
-  18: "Sin",
+  18: "anon",
   19: "Der Trainer",
   20: "Netorious",
   21: "Wuki",
@@ -26,7 +26,7 @@ const holderById: Record<number, string> = {
   23: "Nick",
   24: "Avg",
   25: "Sqalef",
-  26: "Redhood",
+  26: "Tres",
   27: "Gaius",
   28: "Justsomeguy",
   29: "Meepno",
@@ -196,8 +196,9 @@ const collectionItems: Collection[] = [
   {
     id: 18,
     src: "/images/hotheads/hothead_character_018.png",
-    url: "https://x.com/csin02",
+    url: "",
     name: "Echo",
+    xLabel: "anon",
   },
   {
     id: 19,
@@ -244,7 +245,7 @@ const collectionItems: Collection[] = [
   {
     id: 26,
     src: "/images/hotheads/hothead_character_026.png",
-    url: "https://x.com/RedhoodSol",
+    url: "https://x.com/TresFlames031",
     name: "Ash",
   },
   {

@@ -6,4 +6,5 @@ export interface Collection {
   name: string;
   holder?: string;
   level?: string;
+  xLabel?: string;
 }
