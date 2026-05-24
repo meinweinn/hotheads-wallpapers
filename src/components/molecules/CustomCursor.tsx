@@ -5,6 +5,48 @@ const INTERACTIVE_SELECTOR =
   "a, button, [role='button'], .cursor-pointer, .wallet-adapter-button, [data-cursor='hover']";
 const NATIVE_CURSOR_SELECTOR =
   "input, textarea, select, .wallet-adapter-modal, .wallet-adapter-modal *";
+const SCROLLBAR_GUTTER = 18;
+
+const isScrollable = (element: HTMLElement) => {
+  const style = window.getComputedStyle(element);
+  return (
+    /(auto|scroll)/.test(style.overflowY) &&
+    element.scrollHeight > element.clientHeight
+  );
+};
+
+const isOverVerticalScrollbar = (
+  event: MouseEvent | PointerEvent,
+  element: HTMLElement
+) => {
+  const rect = element.getBoundingClientRect();
+  return (
+    event.clientX >= rect.right - SCROLLBAR_GUTTER &&
+    event.clientX <= rect.right &&
+    event.clientY >= rect.top &&
+    event.clientY <= rect.bottom
+  );
+};
+
+const isScrollbarInteraction = (
+  event: MouseEvent | PointerEvent,
+  target: Element | null
+) => {
+  let element = target instanceof HTMLElement ? target : null;
+
+  while (element && element !== document.body) {
+    if (isScrollable(element) && isOverVerticalScrollbar(event, element)) {
+      return true;
+    }
+
+    element = element.parentElement;
+  }
+
+  return (
+    document.documentElement.scrollHeight > window.innerHeight &&
+    event.clientX >= window.innerWidth - SCROLLBAR_GUTTER
+  );
+};
 
 const CustomCursor: FC = () => {
   const [enabled, setEnabled] = useState<boolean>(false);
@@ -29,6 +71,22 @@ const CustomCursor: FC = () => {
   }, []);
 
   useEffect(() => {
+    document.documentElement.classList.toggle(
+      "custom-cursor-native",
+      enabled && useNativeCursor
+    );
+    document.body.classList.toggle(
+      "custom-cursor-native",
+      enabled && useNativeCursor
+    );
+
+    return () => {
+      document.documentElement.classList.remove("custom-cursor-native");
+      document.body.classList.remove("custom-cursor-native");
+    };
+  }, [enabled, useNativeCursor]);
+
+  useEffect(() => {
     if (!enabled) {
       document.body.classList.remove("custom-cursor-enabled");
       document.documentElement.classList.remove("custom-cursor-enabled");
@@ -40,10 +98,16 @@ const CustomCursor: FC = () => {
 
     const handlePointerMove = (event: MouseEvent | PointerEvent) => {
       const target = event.target as Element | null;
+      const shouldUseNativeCursor =
+        Boolean(target?.closest(NATIVE_CURSOR_SELECTOR)) ||
+        isScrollbarInteraction(event, target);
+
       setPosition({ x: event.clientX, y: event.clientY });
       setIsVisible(true);
-      setIsHovering(Boolean(target?.closest(INTERACTIVE_SELECTOR)));
-      setUseNativeCursor(Boolean(target?.closest(NATIVE_CURSOR_SELECTOR)));
+      setUseNativeCursor(shouldUseNativeCursor);
+      setIsHovering(
+        !shouldUseNativeCursor && Boolean(target?.closest(INTERACTIVE_SELECTOR))
+      );
     };
 
     const handleMouseLeave = () => {
