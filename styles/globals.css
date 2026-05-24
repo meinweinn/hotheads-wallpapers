@@ -38,6 +38,23 @@ img {
   user-drag: none;
 }
 
+@media (pointer: fine) {
+  body.custom-cursor-enabled,
+  body.custom-cursor-enabled a,
+  body.custom-cursor-enabled button,
+  body.custom-cursor-enabled [role="button"] {
+    cursor: none;
+  }
+
+  body.custom-cursor-enabled input,
+  body.custom-cursor-enabled textarea,
+  body.custom-cursor-enabled select,
+  body.custom-cursor-enabled .wallet-adapter-modal,
+  body.custom-cursor-enabled .wallet-adapter-modal * {
+    cursor: auto;
+  }
+}
+
 @layer base {
   html {
     @apply bg-custom-black text-gray-100 font-primary uppercase;

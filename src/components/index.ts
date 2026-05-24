@@ -35,6 +35,7 @@ const ScrollItem = dynamic(()=> import("./molecules/ScrollItem"))
 const Modal = dynamic(()=> import("./molecules/Modal"))
 const GalleryItem = dynamic(()=> import("./molecules/GalleryItem"))
 const GallerySidebar = dynamic(()=> import("./molecules/GallerySidebar"))
+const CustomCursor = dynamic(()=> import("./molecules/CustomCursor"), { ssr: false })
 const CollabItem = dynamic(()=> import("./molecules/CollabItem"))
 const Menu = dynamic(() => import("./molecules/Menu"))
 const InventoryItem = dynamic(() => import("./molecules/InventoryItem") )
@@ -93,6 +94,7 @@ export {
   Modal,
   GalleryItem,
   GallerySidebar,
+  CustomCursor,
   Gallery,
   Collab,
   CollabItem,
