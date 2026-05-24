@@ -18,7 +18,7 @@ const holderById: Record<number, string> = {
   15: "Lesta",
   16: "KidPaddle",
   17: "M51",
-  18: "Unknown",
+  18: "Sin",
   19: "Der Trainer",
   20: "Netorious",
   21: "Wuki",
@@ -88,7 +88,7 @@ const collectionItems: Collection[] = [
   {
     id: 0,
     src: "/images/hotheads/hothead_character_000.png",
-    url: "",
+    url: "https://x.com/csin02",
     name: "Headius",
   },
   {

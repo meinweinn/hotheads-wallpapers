@@ -43,11 +43,11 @@ const Home: NextPage = () => {
         {...midEnterAnimation}
       >
         <motion.div
-          className="pointer-events-none fixed left-0 top-0 z-[6] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(255,61,154,0.42)_0%,rgba(255,87,34,0.22)_34%,rgba(33,212,255,0.12)_52%,transparent_72%)] blur-2xl mix-blend-screen"
+          className="pointer-events-none fixed left-0 top-0 z-[6] h-[240px] w-[240px] rounded-full bg-[radial-gradient(circle,rgba(255,61,154,0.18)_0%,rgba(255,87,34,0.1)_38%,transparent_72%)] blur-2xl mix-blend-screen"
           animate={{
-            x: cursor.x - 210,
-            y: cursor.y - 210,
-            opacity: cursor.isVisible ? 1 : 0,
+            x: cursor.x - 120,
+            y: cursor.y - 120,
+            opacity: cursor.isVisible ? 0.72 : 0,
           }}
           transition={{ type: "spring", stiffness: 90, damping: 24, mass: 0.35 }}
         />
@@ -82,13 +82,13 @@ const Home: NextPage = () => {
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-between px-6 py-10 md:px-12 md:py-12">
           <div className="w-full" />
           <motion.div
-            className="flex w-full flex-col items-center gap-8 text-center"
+            className="flex w-full flex-col items-center gap-6 text-center"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
           >
             <motion.div
-              className="relative w-[300px] max-w-[86vw] md:w-[470px] drop-shadow-[0_0_28px_rgba(255,87,34,0.65)]"
+              className="relative w-[250px] max-w-[78vw] md:w-[390px] drop-shadow-[0_0_24px_rgba(255,87,34,0.58)]"
               animate={{ y: [0, -9, 0] }}
               transition={{
                 duration: 3.4,
@@ -108,14 +108,21 @@ const Home: NextPage = () => {
               href="/about"
               aria-label="Enter Hot Heads"
               onClick={handleEnter}
-              className="landing-enter group relative inline-flex h-[58px] min-w-[188px] items-center justify-center overflow-hidden border-2 border-[#ffba21] bg-[#080808]/75 px-8 text-xs uppercase tracking-[0.24em] text-[#ffba21] shadow-[0_0_22px_rgba(255,0,120,0.34)] backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[#ff3d9a] hover:text-white hover:shadow-[0_0_30px_rgba(255,61,154,0.62)]"
+              className="landing-enter group relative inline-flex h-[48px] min-w-[158px] items-center justify-center overflow-hidden border border-[#ffba21]/85 bg-[#080808]/72 px-7 text-[10px] uppercase tracking-[0.22em] text-[#ffba21] shadow-[0_0_18px_rgba(255,0,120,0.26)] backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[#ff3d9a] hover:text-white hover:shadow-[0_0_24px_rgba(255,61,154,0.48)]"
             >
               <span className="absolute inset-x-0 top-0 h-px bg-white/50" />
               <span className="absolute inset-y-0 left-0 w-1 bg-[#ff3d9a] opacity-80 transition-all duration-200 group-hover:w-full group-hover:opacity-10" />
               <span className="landing-enter-text relative">Enter</span>
             </Link>
           </motion.div>
-          <div className="h-10 w-full md:h-16" />
+          <motion.p
+            className="mb-5 text-center font-daysOne text-[11px] normal-case tracking-[0.18em] text-white/70 drop-shadow-[0_0_10px_rgba(255,186,33,0.22)] md:mb-8 md:text-xs"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.45 }}
+          >
+            Welcome to the Underworld.
+          </motion.p>
         </div>
         <motion.div
           className="pointer-events-none absolute inset-0 z-20 bg-white"
