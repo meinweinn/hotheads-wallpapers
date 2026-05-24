@@ -44,11 +44,6 @@ img {
     cursor: none !important;
   }
 
-  html.custom-cursor-enabled.custom-cursor-native,
-  html.custom-cursor-enabled.custom-cursor-native * {
-    cursor: auto !important;
-  }
-
   html.custom-cursor-enabled input,
   html.custom-cursor-enabled textarea,
   html.custom-cursor-enabled select,
