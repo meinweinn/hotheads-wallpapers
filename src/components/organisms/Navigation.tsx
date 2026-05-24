@@ -15,11 +15,11 @@ const Navigation: FC = () => {
   }, []);
 
   return (
-    <header className="">
+    <header className="relative z-30">
       {didMount && (
         <>
           {/* lg + screens */}
-          <div className="hidden lg:block fixed left-0 3xl:-top-[14%] h-full lg:w-60 2xl:w-[20%] 3xl:w-[18%]">
+          <div className="hidden lg:block fixed left-0 3xl:-top-[14%] z-30 h-full lg:w-60 2xl:w-[20%] 3xl:w-[18%]">
             <motion.div className="left-8 top-5 fixed">
               <Logo />
             </motion.div>
@@ -39,7 +39,7 @@ const Navigation: FC = () => {
             </motion.div>
           </div>
           {/* md - screens */}
-          <div className="lg:hidden flex justify-between px-4 md:px-8 py-2 relative">
+          <div className="lg:hidden flex justify-between px-4 md:px-8 py-2 relative z-30">
             <Logo />
             <AnimatePresence mode="wait">
               {!openMenu ? (
@@ -65,7 +65,7 @@ const Navigation: FC = () => {
           </div>
           {/* {router.asPath === "/inventory" && ( */}
           <motion.div
-            className="absolute md:fixed left-1/2 md:left-auto -translate-x-1/2 md:-translate-x-0 top-5 md:right-28 lg:right-10 z-0"
+            className="absolute md:fixed left-1/2 md:left-auto -translate-x-1/2 md:-translate-x-0 top-5 md:right-28 lg:right-10 z-30"
             // {...enterAnimation}
           >
             <WalletMultiButton

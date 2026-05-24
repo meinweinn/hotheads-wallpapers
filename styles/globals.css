@@ -56,6 +56,8 @@ p { }
 }
 
 .site-cyber-glow {
+  pointer-events: none !important;
+  z-index: 0;
   background:
     radial-gradient(circle at 78% 20%, rgba(255, 61, 154, 0.16), transparent 32%),
     radial-gradient(circle at 18% 82%, rgba(33, 212, 255, 0.09), transparent 34%),
@@ -64,6 +66,8 @@ p { }
 }
 
 .site-scanlines {
+  pointer-events: none !important;
+  z-index: 1;
   opacity: 0.08;
   background-image: linear-gradient(rgba(255, 255, 255, 0.34) 1px, transparent 1px);
   background-size: 100% 4px;
