@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { FC, useEffect, useState } from "react";
 
+const INTERACTIVE_SELECTOR =
+  "a, button, [role='button'], .wallet-adapter-button, [data-cursor='hover']";
 const NATIVE_CURSOR_SELECTOR =
   "input, textarea, select, .wallet-adapter-modal, .wallet-adapter-modal *";
 
@@ -8,6 +10,7 @@ const CustomCursor: FC = () => {
   const [enabled, setEnabled] = useState<boolean>(false);
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isHovering, setIsHovering] = useState<boolean>(false);
   const [useNativeCursor, setUseNativeCursor] = useState<boolean>(false);
 
   useEffect(() => {
@@ -37,11 +40,13 @@ const CustomCursor: FC = () => {
       const target = event.target as Element | null;
       setPosition({ x: event.clientX, y: event.clientY });
       setIsVisible(true);
+      setIsHovering(Boolean(target?.closest(INTERACTIVE_SELECTOR)));
       setUseNativeCursor(Boolean(target?.closest(NATIVE_CURSOR_SELECTOR)));
     };
 
     const handleMouseLeave = () => {
       setIsVisible(false);
+      setIsHovering(false);
       setUseNativeCursor(false);
     };
 
@@ -77,7 +82,13 @@ const CustomCursor: FC = () => {
           x: position.x - 16,
           y: position.y - 16,
           opacity: isVisible ? 1 : 0,
-          scale: 1,
+          scale: isHovering ? 1.2 : 1,
+          borderColor: isHovering
+            ? "rgba(255,186,33,0.95)"
+            : "rgba(255,61,154,0.78)",
+          boxShadow: isHovering
+            ? "0 0 24px rgba(255,186,33,0.36)"
+            : "0 0 16px rgba(255,61,154,0.28)",
         }}
         transition={{ type: "spring", stiffness: 420, damping: 28, mass: 0.35 }}
       />
