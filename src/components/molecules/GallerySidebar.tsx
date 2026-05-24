@@ -28,7 +28,7 @@ const isTeamHolder = (holder: string): boolean =>
 const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const xHandle = useMemo(
-    () => getXHandle(selectedItem?.url ?? ""),
+    () => selectedItem?.xLabel ?? getXHandle(selectedItem?.url ?? ""),
     [selectedItem]
   );
   const holderLabel =
@@ -169,7 +169,7 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
                     </button>
                   ) : (
                     <p className="mt-2 text-sm text-custom-light-gray">
-                      Not linked
+                      {xHandle}
                     </p>
                   )}
                 </div>
