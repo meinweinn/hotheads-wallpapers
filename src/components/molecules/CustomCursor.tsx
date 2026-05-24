@@ -40,10 +40,13 @@ const CustomCursor: FC = () => {
 
     const handlePointerMove = (event: MouseEvent | PointerEvent) => {
       const target = event.target as Element | null;
+      const shouldUseNativeCursor = Boolean(target?.closest(NATIVE_CURSOR_SELECTOR));
       setPosition({ x: event.clientX, y: event.clientY });
       setIsVisible(true);
-      setIsHovering(Boolean(target?.closest(INTERACTIVE_SELECTOR)));
-      setUseNativeCursor(Boolean(target?.closest(NATIVE_CURSOR_SELECTOR)));
+      setUseNativeCursor(shouldUseNativeCursor);
+      setIsHovering(
+        !shouldUseNativeCursor && Boolean(target?.closest(INTERACTIVE_SELECTOR))
+      );
     };
 
     const handleMouseLeave = () => {
@@ -67,7 +70,9 @@ const CustomCursor: FC = () => {
     };
   }, [enabled]);
 
-  if (!enabled || useNativeCursor) {
+  const shouldShowCustomCursor = isVisible && !useNativeCursor;
+
+  if (!enabled) {
     return null;
   }
 
@@ -78,7 +83,7 @@ const CustomCursor: FC = () => {
         animate={{
           x: position.x - 4,
           y: position.y - 4,
-          opacity: isVisible ? 1 : 0,
+          opacity: shouldShowCustomCursor ? 1 : 0,
           scale: 1,
         }}
         transition={{ type: "spring", stiffness: 900, damping: 34, mass: 0.2 }}
@@ -88,7 +93,7 @@ const CustomCursor: FC = () => {
         animate={{
           x: position.x - 16,
           y: position.y - 16,
-          opacity: isVisible ? 1 : 0,
+          opacity: shouldShowCustomCursor ? 1 : 0,
           scale: isHovering ? 1.2 : 1,
           borderColor: isHovering
             ? "rgba(255,186,33,0.95)"
