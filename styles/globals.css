@@ -43,6 +43,7 @@ img {
   body.custom-cursor-enabled a,
   body.custom-cursor-enabled button,
   body.custom-cursor-enabled [role="button"],
+  body.custom-cursor-enabled .cursor-pointer,
   body.custom-cursor-enabled .wallet-adapter-button {
     cursor: none;
   }

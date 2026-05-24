@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { FC, useEffect, useState } from "react";
 
 const INTERACTIVE_SELECTOR =
-  "a, button, [role='button'], .wallet-adapter-button, [data-cursor='hover']";
+  "a, button, [role='button'], .cursor-pointer, .wallet-adapter-button, [data-cursor='hover']";
 const NATIVE_CURSOR_SELECTOR =
   "input, textarea, select, .wallet-adapter-modal, .wallet-adapter-modal *";
 
