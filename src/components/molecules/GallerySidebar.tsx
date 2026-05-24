@@ -1,7 +1,8 @@
 import { Collection } from "@types";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { Dispatch, FC, SetStateAction, useMemo } from "react";
+import { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import CloseIcon from "../@icons/CloseIcon";
 
 interface GallerySidebarProps {
@@ -25,6 +26,7 @@ const isTeamHolder = (holder: string): boolean =>
   ["connor", "mein", "fto"].includes(holder.trim().toLowerCase());
 
 const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   const xHandle = useMemo(
     () => getXHandle(selectedItem?.url ?? ""),
     [selectedItem]
@@ -37,7 +39,15 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
     window.open(selectedItem.url, "_blank");
   };
 
-  return (
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
+  return createPortal(
     <AnimatePresence mode="wait">
       {selectedItem && (
         <motion.div
@@ -168,7 +178,8 @@ const GallerySidebar: FC<GallerySidebarProps> = ({ selectedItem, close }) => {
           </motion.aside>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
 
