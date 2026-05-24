@@ -137,7 +137,7 @@ const collectionItems: Collection[] = [
     id: 8,
     src: "/images/hotheads/hothead_character_008.png",
     url: "https://x.com/0xMQQ",
-    name: "0xMQQ",
+    name: "Cherry",
   },
   {
     id: 9,
@@ -173,7 +173,7 @@ const collectionItems: Collection[] = [
     id: 14,
     src: "/images/hotheads/hothead_character_014.png",
     url: "https://x.com/voshy",
-    name: "Voshy",
+    name: "Dune",
   },
   {
     id: 15,
@@ -331,7 +331,7 @@ const collectionItems: Collection[] = [
     id: 40,
     src: "/images/hotheads/hh_40/PFP/image.png",
     url: "https://x.com/huatrabbit",
-    name: "huat",
+    name: "Santana",
   },
   {
     id: 41,
@@ -422,7 +422,7 @@ const collectionItems: Collection[] = [
     id: 55,
     src: "/images/hotheads/hh_55/PFP/image.png",
     url: "https://x.com/metapsilo",
-    name: "Meta",
+    name: "Snow",
   },
   {
     id: 56,
