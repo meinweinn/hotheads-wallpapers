@@ -51,10 +51,34 @@ html {
 
 p { }
 
+.site-shell {
+  background-color: #0b0d10;
+}
+
+.site-cyber-glow {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(255, 61, 154, 0.16), transparent 32%),
+    radial-gradient(circle at 18% 82%, rgba(33, 212, 255, 0.09), transparent 34%),
+    linear-gradient(90deg, rgba(3, 12, 18, 0.42), rgba(18, 18, 18, 0.18));
+  mix-blend-mode: screen;
+}
+
+.site-scanlines {
+  opacity: 0.08;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.34) 1px, transparent 1px);
+  background-size: 100% 4px;
+}
+
+.site-page-title {
+  filter: drop-shadow(0 0 10px rgba(255, 87, 34, 0.26));
+}
+
 .medium-frame {
   border: 25px solid transparent;
   padding: 0px;
   border-image: url("/images/medium-frame.png") 105 round;
+  filter: drop-shadow(0 0 8px rgba(255, 61, 154, 0.12));
+  transition: filter 180ms ease, transform 180ms ease;
 }
 
 .hh-name {
@@ -62,6 +86,7 @@ p { }
   padding: 0px;
   border-image: url("/images/button-hh-name.png") 50 round;
   background-color: #202020;
+  box-shadow: 0 0 14px rgba(255, 186, 33, 0.05);
 }
 
 /* scroll bar */
@@ -69,7 +94,13 @@ p { }
   border: 45px solid transparent;
   padding: 20px;
   border-image: url("/images/container.png") 200 round;
-  background-color: #202020;
+  background:
+    linear-gradient(180deg, rgba(255, 61, 154, 0.035), transparent 32%),
+    #202020;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.025),
+    0 0 28px rgba(255, 61, 154, 0.07),
+    0 0 40px rgba(33, 212, 255, 0.035);
 }
 
 @media (max-width:480px)  {
