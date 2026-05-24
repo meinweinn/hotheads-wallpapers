@@ -149,8 +149,10 @@ const Network: NextPage = () => {
                         <div className="flex flex-row flex-wrap gap-3">
                           <a
                             className="w-14 h-14 opacity-80 hover:opacity-100 transition-all flex items-center justify-center bg-custom-black border-4 border-custom-light-gray-2 hover:border-custom-yellow"
-                            href="#"
+                            href="https://x.com/brentcrude_"
                             aria-label="X Socials"
+                            target="_blank"
+                            rel="noreferrer"
                           >
                             <Image
                               src="/images/x-logo.svg"
@@ -161,8 +163,10 @@ const Network: NextPage = () => {
                           </a>
                           <a
                             className="w-14 h-14 opacity-80 hover:opacity-100 transition-all flex items-center justify-center bg-custom-black border-4 border-custom-light-gray-2 hover:border-custom-yellow"
-                            href="#"
+                            href="https://pump.fun/coin/kLqMvUm1p4pRbxU4r8kWCTVAuWMJLtcTJqGb4b5pump"
                             aria-label="Pump.fun"
+                            target="_blank"
+                            rel="noreferrer"
                           >
                             <Image
                               src="/images/pumpfun.svg"
@@ -171,10 +175,10 @@ const Network: NextPage = () => {
                               height={31}
                             />
                           </a>
-                          <a
-                            className="w-14 h-14 opacity-80 hover:opacity-100 transition-all flex items-center justify-center bg-custom-black border-4 border-custom-light-gray-2 hover:border-custom-yellow"
-                            href="#"
+                          <div
+                            className="w-14 h-14 opacity-35 transition-all flex items-center justify-center bg-custom-black border-4 border-custom-light-gray-2"
                             aria-label="Telegram"
+                            aria-disabled="true"
                           >
                             <Image
                               src="/images/telegram.svg"
@@ -182,7 +186,7 @@ const Network: NextPage = () => {
                               width={28}
                               height={28}
                             />
-                          </a>
+                          </div>
                         </div>
                         <div className="flex flex-col gap-3 font-daysOne normal-case">
                           <div className="flex items-center justify-between border-2 border-custom-mid-gray bg-custom-black px-4 py-3">
