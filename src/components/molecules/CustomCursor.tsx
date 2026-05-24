@@ -31,12 +31,14 @@ const CustomCursor: FC = () => {
   useEffect(() => {
     if (!enabled) {
       document.body.classList.remove("custom-cursor-enabled");
+      document.documentElement.classList.remove("custom-cursor-enabled");
       return;
     }
 
     document.body.classList.add("custom-cursor-enabled");
+    document.documentElement.classList.add("custom-cursor-enabled");
 
-    const handleMouseMove = (event: MouseEvent) => {
+    const handlePointerMove = (event: MouseEvent | PointerEvent) => {
       const target = event.target as Element | null;
       setPosition({ x: event.clientX, y: event.clientY });
       setIsVisible(true);
@@ -50,12 +52,17 @@ const CustomCursor: FC = () => {
       setUseNativeCursor(false);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handlePointerMove);
+    window.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener("pointerdown", handlePointerMove);
     document.documentElement.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       document.body.classList.remove("custom-cursor-enabled");
-      window.removeEventListener("mousemove", handleMouseMove);
+      document.documentElement.classList.remove("custom-cursor-enabled");
+      window.removeEventListener("mousemove", handlePointerMove);
+      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("pointerdown", handlePointerMove);
       document.documentElement.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [enabled]);

@@ -1,6 +1,7 @@
 import "tailwindcss/tailwind.css";
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import { CustomCursor } from "@components";
 //solana wallet
 import {
   ConnectionProvider,
@@ -53,6 +54,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           {/* <WalletMultiButton /> */}
+          <CustomCursor />
           <Component {...pageProps} />
         </WalletModalProvider>
       </WalletProvider>
