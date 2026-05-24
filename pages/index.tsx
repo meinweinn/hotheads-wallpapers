@@ -116,7 +116,11 @@ const Home: NextPage = () => {
             </Link>
           </motion.div>
           <motion.p
-            className="mb-5 text-center font-daysOne text-[11px] normal-case tracking-[0.18em] text-white/70 drop-shadow-[0_0_10px_rgba(255,186,33,0.22)] md:mb-8 md:text-xs"
+            className="mb-5 text-center text-[12px] font-light normal-case tracking-[0.32em] text-white/75 drop-shadow-[0_0_14px_rgba(255,255,255,0.16)] md:mb-8 md:text-sm"
+            style={{
+              fontFamily:
+                'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+            }}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.45 }}
