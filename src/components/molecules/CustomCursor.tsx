@@ -72,7 +72,7 @@ const CustomCursor: FC = () => {
           x: position.x - 4,
           y: position.y - 4,
           opacity: isVisible ? 1 : 0,
-          scale: isHovering ? 0.75 : 1,
+          scale: 1,
         }}
         transition={{ type: "spring", stiffness: 900, damping: 34, mass: 0.2 }}
       />
@@ -82,7 +82,7 @@ const CustomCursor: FC = () => {
           x: position.x - 16,
           y: position.y - 16,
           opacity: isVisible ? 1 : 0,
-          scale: isHovering ? 1.38 : 1,
+          scale: isHovering ? 0.58 : 1,
           borderColor: isHovering
             ? "rgba(255,186,33,0.92)"
             : "rgba(255,61,154,0.78)",
