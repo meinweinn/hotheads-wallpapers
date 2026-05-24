@@ -40,7 +40,7 @@ img {
 
 @layer base {
   html {
-    @apply bg-gradient-to-t from-[#FF5722] to-[#A70606] bg-custom-black text-gray-100 font-primary uppercase;
+    @apply bg-custom-black text-gray-100 font-primary uppercase;
   }
 }
 

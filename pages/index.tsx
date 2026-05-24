@@ -10,6 +10,7 @@ import { MouseEvent, useState } from "react";
 const Home: NextPage = () => {
   const router = useRouter();
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
+  const [cursor, setCursor] = useState({ x: 0, y: 0, isVisible: false });
   const [gifLoaded, setGifLoaded] = useState<boolean>(false);
   const [isEntering, setIsEntering] = useState<boolean>(false);
 
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
     const y = (event.clientY / innerHeight - 0.5) * 2;
 
     setParallax({ x, y });
+    setCursor({ x: event.clientX, y: event.clientY, isVisible: true });
   };
 
   const handleEnter = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -35,16 +37,19 @@ const Home: NextPage = () => {
       <motion.div
         className="relative h-screen w-screen overflow-hidden bg-custom-black"
         onMouseMove={handleMouseMove}
+        onMouseLeave={() =>
+          setCursor((currentCursor) => ({ ...currentCursor, isVisible: false }))
+        }
         {...midEnterAnimation}
       >
         <motion.div
-          className="pointer-events-none absolute z-[3] h-[340px] w-[340px] rounded-full bg-[#ff3d9a]/14 blur-3xl mix-blend-screen"
+          className="pointer-events-none fixed left-0 top-0 z-[6] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(255,61,154,0.42)_0%,rgba(255,87,34,0.22)_34%,rgba(33,212,255,0.12)_52%,transparent_72%)] blur-2xl mix-blend-screen"
           animate={{
-            x: `calc(${50 + parallax.x * 18}% - 170px)`,
-            y: `calc(${50 + parallax.y * 18}% - 170px)`,
-            opacity: gifLoaded ? 1 : 0.55,
+            x: cursor.x - 210,
+            y: cursor.y - 210,
+            opacity: cursor.isVisible ? 1 : 0,
           }}
-          transition={{ type: "spring", stiffness: 45, damping: 24, mass: 0.6 }}
+          transition={{ type: "spring", stiffness: 90, damping: 24, mass: 0.35 }}
         />
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(255,87,34,0.16),transparent_42%),linear-gradient(135deg,#07131d_0%,#120711_55%,#090909_100%)]" />
         <motion.div
