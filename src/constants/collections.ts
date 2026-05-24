@@ -88,7 +88,7 @@ const collectionItems: Collection[] = [
   {
     id: 0,
     src: "/images/hotheads/hothead_character_000.png",
-    url: "https://x.com/csin02",
+    url: "",
     name: "Headius",
   },
   {
@@ -196,7 +196,7 @@ const collectionItems: Collection[] = [
   {
     id: 18,
     src: "/images/hotheads/hothead_character_018.png",
-    url: "",
+    url: "https://x.com/csin02",
     name: "Echo",
   },
   {
