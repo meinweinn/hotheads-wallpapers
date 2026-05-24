@@ -55,7 +55,7 @@ const holderById: Record<number, string> = {
   52: "Suckmyleg",
   53: "Gentlemonke",
   54: "mxlcolm",
-  55: "Connor",
+  55: "Meta",
   56: "Stef",
   57: "Tommy",
   58: "Toly",
@@ -421,8 +421,8 @@ const collectionItems: Collection[] = [
   {
     id: 55,
     src: "/images/hotheads/hh_55/PFP/image.png",
-    url: "https://x.com/SerConnorr",
-    name: "Snow",
+    url: "https://x.com/metapsilo",
+    name: "Meta",
   },
   {
     id: 56,
