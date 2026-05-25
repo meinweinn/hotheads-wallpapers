@@ -28,7 +28,7 @@ const Home: NextPage = () => {
     setIsEntering(true);
     window.setTimeout(() => {
       router.push("/about");
-    }, 260);
+    }, 620);
   };
 
   return (
@@ -59,11 +59,13 @@ const Home: NextPage = () => {
             x: parallax.x * -18,
             y: parallax.y * -10,
             opacity: gifLoaded ? 1 : 0,
+            scale: isEntering ? 1.08 : 1,
           }}
           transition={{
             x: { type: "spring", stiffness: 55, damping: 22, mass: 0.5 },
             y: { type: "spring", stiffness: 55, damping: 22, mass: 0.5 },
             opacity: { duration: 0.6, ease: "easeOut" },
+            scale: { duration: 0.62, ease: [0.22, 1, 0.36, 1] },
           }}
         >
           <Image
@@ -84,8 +86,12 @@ const Home: NextPage = () => {
           <motion.div
             className="flex w-full flex-col items-center gap-6 text-center"
             initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+            animate={{
+              opacity: isEntering ? 0 : 1,
+              y: isEntering ? -14 : 0,
+              scale: isEntering ? 0.98 : 1,
+            }}
+            transition={{ duration: isEntering ? 0.28 : 0.7, ease: "easeOut", delay: isEntering ? 0 : 0.15 }}
           >
             <motion.div
               className="relative w-[250px] max-w-[78vw] md:w-[390px] drop-shadow-[0_0_24px_rgba(255,87,34,0.58)]"
@@ -122,22 +128,53 @@ const Home: NextPage = () => {
                 'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
             }}
             initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.45 }}
+            animate={{ opacity: isEntering ? 0 : 1, y: isEntering ? 6 : 0 }}
+            transition={{ duration: isEntering ? 0.22 : 0.6, ease: "easeOut", delay: isEntering ? 0 : 0.45 }}
           >
             Welcome to the Underworld.
           </motion.p>
         </div>
         <motion.div
-          className="pointer-events-none absolute inset-0 z-20 bg-white"
+          className="pointer-events-none absolute inset-0 z-20 bg-[#030303]"
           initial={{ opacity: 0 }}
-          animate={{ opacity: isEntering ? [0, 0.22, 0.08, 1] : 0 }}
-          transition={{ duration: 0.26, ease: "easeOut" }}
+          animate={{ opacity: isEntering ? [0, 0.22, 0.78, 1] : 0 }}
+          transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
+        />
+        <motion.div
+          className="pointer-events-none absolute inset-0 z-[21] bg-[radial-gradient(circle_at_center,rgba(255,186,33,0.16),transparent_30%),linear-gradient(90deg,rgba(255,61,154,0.18),transparent_45%,rgba(33,212,255,0.12))] mix-blend-screen"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isEntering ? [0, 0.9, 0.18, 0] : 0 }}
+          transition={{ duration: 0.44, ease: "easeOut" }}
+        />
+        <motion.div
+          className="pointer-events-none absolute left-0 z-[22] h-[2px] w-full bg-custom-yellow shadow-[0_0_22px_rgba(255,186,33,0.9)]"
+          initial={{ y: "-12vh", opacity: 0 }}
+          animate={{
+            y: isEntering ? ["-12vh", "38vh", "118vh"] : "-12vh",
+            opacity: isEntering ? [0, 1, 0.7, 0] : 0,
+          }}
+          transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
+        />
+        <motion.div
+          className="landing-entry-noise pointer-events-none absolute inset-0 z-[23]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isEntering ? [0, 0.45, 0.18, 0] : 0 }}
+          transition={{ duration: 0.48, ease: "easeOut" }}
         />
         <style jsx>{`
           .landing-flicker {
             animation: landing-flicker 7.5s infinite;
             pointer-events: none;
+          }
+
+          .landing-entry-noise {
+            background-image: linear-gradient(
+                rgba(255, 255, 255, 0.22) 1px,
+                transparent 1px
+              ),
+              linear-gradient(90deg, rgba(255, 61, 154, 0.18), transparent);
+            background-size: 100% 5px, 100% 100%;
+            mix-blend-mode: screen;
           }
 
           @keyframes landing-flicker {
