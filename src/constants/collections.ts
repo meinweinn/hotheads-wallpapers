@@ -73,7 +73,7 @@ const holderById: Record<number, string> = {
   70: "Pete the Jeet",
   71: "Kadense",
   72: "GKS",
-  73: "Connor",
+  73: "matija",
   74: "The Crypto Asian",
   75: "mein",
   76: "Nes",
@@ -531,7 +531,7 @@ const collectionItems: Collection[] = [
   {
     id: 73,
     src:"/images/hotheads/hh_73/PFP/image.webp",
-    url:"https://x.com/SerConnorr",
+    url:"https://x.com/matija_sol",
     name:"Graffiti"
   },
   {
