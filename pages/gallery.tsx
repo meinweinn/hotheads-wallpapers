@@ -68,7 +68,7 @@ const Home: NextPage = () => {
                 Search
               </span>
               <input
-                className="w-full rounded-[6px] border border-white/10 bg-[#050607]/85 py-3 pl-[92px] pr-4 text-sm normal-case text-white outline-none shadow-[0_0_22px_rgba(255,61,154,0.08)] transition-all placeholder:text-white/28 focus:border-custom-yellow/70 focus:shadow-[0_0_26px_rgba(255,186,33,0.14)]"
+                className="gallery-search-input w-full rounded-[6px] border border-white/10 bg-[#050607]/85 py-3 pl-[92px] pr-4 text-sm normal-case text-white outline-none shadow-[0_0_22px_rgba(255,61,154,0.08)] transition-all placeholder:text-white/28 focus:border-custom-yellow/70 focus:shadow-[0_0_26px_rgba(255,186,33,0.14)]"
                 type="search"
                 value={searchQuery}
                 placeholder="ID, name, holder, X handle"

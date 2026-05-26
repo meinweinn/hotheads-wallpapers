@@ -204,3 +204,25 @@ p { }
 .network-scroll::-webkit-scrollbar-thumb:hover {
   background: #E77975;
 }
+
+.gallery-search-input {
+  background-color: rgba(5, 6, 7, 0.92) !important;
+  color: #ffffff !important;
+  caret-color: #FFBA21;
+  -webkit-text-fill-color: #ffffff;
+}
+
+.gallery-search-input::-webkit-search-decoration,
+.gallery-search-input::-webkit-search-cancel-button,
+.gallery-search-input::-webkit-search-results-button,
+.gallery-search-input::-webkit-search-results-decoration {
+  filter: invert(1);
+}
+
+.gallery-search-input:-webkit-autofill,
+.gallery-search-input:-webkit-autofill:hover,
+.gallery-search-input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px #050607 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #FFBA21;
+}
