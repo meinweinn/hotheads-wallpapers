@@ -234,7 +234,7 @@ const collectionItems: Collection[] = [
     id: 24,
     src: "/images/hotheads/hothead_character_024.png",
     url: "https://x.com/wynx_sol",
-    name: "Wynx",
+    name: "Emerald",
   },
   {
     id: 25,
