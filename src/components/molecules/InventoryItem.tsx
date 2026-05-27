@@ -1,6 +1,5 @@
-import { Dispatch, FC, SetStateAction } from "react";
+import { Dispatch, FC, memo, SetStateAction } from "react";
 import { motion } from "framer-motion";
-import { midEnterAnimation } from "@constants";
 import Image from "next/image";
 import { DownloadIcon, ScrollItem } from "@components";
 import download from "downloadjs";
@@ -52,6 +51,7 @@ const InventoryItem: FC<InventoryItemProps> = (props: InventoryItemProps) => {
                 alt={`${folder()}-${index}`}
                 className="rounded-sm"
                 style={{ objectFit: "cover" }}
+                sizes="200px"
                 fill
               />
             )}
@@ -66,4 +66,4 @@ const InventoryItem: FC<InventoryItemProps> = (props: InventoryItemProps) => {
   );
 };
 
-export default InventoryItem;
+export default memo(InventoryItem);

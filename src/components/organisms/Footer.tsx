@@ -33,7 +33,7 @@ const SocialLink: FC<SocialLinkProps> = ({ href, src, alt }) => {
 const Footer: FC = () => {
   return (
     <motion.footer
-      className="pointer-events-none px-8 py-4 lg:pb-0 abolute bottom-0 bg-transparent w-screen"
+      className="pointer-events-none px-8 py-4 lg:pb-0 bg-transparent w-screen"
       {...midEnterAnimation}
     >
       <div className="flex flex-col md:flex-row items-center gap-4">
@@ -54,7 +54,11 @@ const Footer: FC = () => {
             src="/images/logo-discord.png"
             alt="Discord"
           />
-          <SocialLink href="https://x.com/HotHeadsNFT" src="/images/logo-x.png" alt="X" />
+          <SocialLink
+            href="https://x.com/HotHeadsNFT"
+            src="/images/logo-x.png"
+            alt="X"
+          />
           <SocialLink
             href="https://magiceden.io/tr/marketplace/hot_heads"
             src="/images/logo-me.png"

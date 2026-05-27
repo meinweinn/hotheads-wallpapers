@@ -6,7 +6,7 @@ import {
   Gallery,
   GallerySidebar,
 } from "@components";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useDeferredValue, useMemo, useState } from "react";
 import { NextPage } from "next";
 import { motion, AnimatePresence } from "framer-motion";
 import { midExitAnimation, collections, collabs } from "@constants";
@@ -21,8 +21,9 @@ const Home: NextPage = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const tabs: string[] = ["hot heads", "collabs"];
+  const deferredSearchQuery = useDeferredValue(searchQuery);
   const filteredCollections = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
+    const query = deferredSearchQuery.trim().toLowerCase();
 
     if (!query) return collections;
 
@@ -44,7 +45,7 @@ const Home: NextPage = () => {
 
       return searchable.includes(query);
     });
-  }, [searchQuery]);
+  }, [deferredSearchQuery]);
   const handleTabChange = useCallback((tab: number) => {
     setSelectedItem(null);
     setImageModal("");
@@ -82,7 +83,10 @@ const Home: NextPage = () => {
           <AnimatePresence mode="wait">
             {tabId === 0 ? (
               <motion.div {...midExitAnimation} key="hot-heads">
-                <Gallery collection={filteredCollections} onSelect={setSelectedItem} />
+                <Gallery
+                  collection={filteredCollections}
+                  onSelect={setSelectedItem}
+                />
               </motion.div>
             ) : (
               <motion.div {...midExitAnimation} key="collab">
@@ -107,8 +111,8 @@ const Home: NextPage = () => {
             src={imageModal}
             style={{ objectFit: "contain" }}
             fill
+            sizes="100vw"
             alt="Image"
-            objectFit="contain"
             onLoadingComplete={() => setImageLoaded(true)}
           />
         )}
