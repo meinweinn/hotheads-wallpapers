@@ -7,7 +7,7 @@ const holderById: Record<number, string> = {
   4: "OG Rish",
   5: "akshay",
   6: "ToadWarrior",
-  7: "Connor",
+  7: "Mad Coach",
   8: "0xMQQ",
   9: "Adman",
   10: "Connor",
@@ -130,7 +130,7 @@ const collectionItems: Collection[] = [
   {
     id: 7,
     src: "/images/hotheads/hothead_character_007.png",
-    url: "https://x.com/SerConnorr",
+    url: "https://x.com/SolanaCoach",
     name: "Ruby",
   },
   {

@@ -33,12 +33,20 @@ const Gallery: FC<GalleryProps> = (props: GalleryProps) => {
     } else {
       return index <= 6 ? index % 6 : index % 2;
     }
-
-    // else if (winWidth < 767) {
-    //   return index < 6 ? index % 6 : index % 2;
-    // }
-    // return index < 6 ? index % 6 : index % 3;
   };
+
+  if (collection.length === 0) {
+    return (
+      <div className="flex min-h-[280px] flex-col items-center justify-center gap-3 px-6 text-center">
+        <p className="font-primary text-sm uppercase text-custom-yellow drop-shadow-[0_0_10px_rgba(255,186,33,0.24)]">
+          No Signal
+        </p>
+        <p className="font-daysOne text-sm normal-case text-white/55">
+          No Hot Head matched your search.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <motion.div
@@ -47,24 +55,19 @@ const Gallery: FC<GalleryProps> = (props: GalleryProps) => {
       initial="hidden"
       animate="show"
     >
-      {collection &&
-        collection.map((item, index) => {
-          return (
-            <ScrollItem
-              duration={1}
-              key={index}
-              index={getDelayOrder(index)}
-              enableY={true}
-              isInViewOnce={true}
-            >
-              <GalleryItem
-                key={index}
-                item={item}
-                onSelect={onSelect}
-              />
-            </ScrollItem>
-          );
-        })}
+      {collection.map((item, index) => {
+        return (
+          <ScrollItem
+            duration={1}
+            key={item.id}
+            index={getDelayOrder(index)}
+            enableY={true}
+            isInViewOnce={true}
+          >
+            <GalleryItem item={item} onSelect={onSelect} />
+          </ScrollItem>
+        );
+      })}
     </motion.div>
   );
 };

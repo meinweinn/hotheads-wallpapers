@@ -17,14 +17,12 @@ const About: NextPage = () => {
   return (
     <PageLayout header="About">
       <div className="w-full h-full md:px-8 flex flex-col items-center gap-10 lg:gap-5 pt-5">
-        {/* toggle  */}
         <TabBar tabs={tabs} handleTabChange={handleTabChange} />
-        {/* content */}
         <div className="container overflow-y-hidden lg:overflow-y-auto overflow-x-hidden h-full">
           <AnimatePresence mode="wait">
             {tabId === 0 ? (
               <motion.div
-                className="h-full flex flex-col gap-10 px-2 md:px-10   pt-11"
+                className="h-full flex flex-col gap-10 px-2 md:px-10 pt-11"
                 {...midExitAnimation}
                 key="info"
               >
@@ -47,8 +45,7 @@ const About: NextPage = () => {
                 </ScrollItem>
                 <ScrollItem key="info-4">
                   <ListItem>
-                    Our primary methods of communication are Discord and
-                    X.
+                    Our primary methods of communication are Discord and X.
                   </ListItem>
                 </ScrollItem>
               </motion.div>
@@ -56,11 +53,11 @@ const About: NextPage = () => {
               <motion.div
                 {...midExitAnimation}
                 key="lore"
-                className="h-full text-center py-4 px-0 lg:px-8 2xl:px-20 flex flex-col gap-10 "
+                className="h-full text-center py-4 px-0 lg:px-8 2xl:px-20 flex flex-col gap-10"
               >
                 <ScrollItem>
-                  Hidden deep within the Earth&apos;s core reside a sinister
-                  cult of one hundred unique magma rocks.
+                  Hidden deep within the Earth&apos;s core reside a sinister cult of
+                  one hundred unique magma rocks.
                 </ScrollItem>
                 <ScrollItem>
                   These devilish creatures are known to many as the{" "}
@@ -74,8 +71,8 @@ const About: NextPage = () => {
                   watching over all of the tortured souls.
                 </ScrollItem>
                 <ScrollItem>
-                  They&apos;re fierce but fair creatures, until their
-                  temperature rises, then they may not be so forgiving.
+                  They&apos;re fierce but fair creatures, until their temperature
+                  rises, then they may not be so forgiving.
                 </ScrollItem>
                 <ScrollItem>
                   <Image

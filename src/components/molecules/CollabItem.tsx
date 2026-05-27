@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useState } from "react";
+import { Dispatch, FC, memo, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ExchangeIcon } from "@components";
@@ -36,6 +36,7 @@ const CollabItem: FC<CollabItemProps> = (props: CollabItemProps) => {
             // height={300}
             // width={300}
             style={{ objectFit: "cover" }}
+            sizes="250px"
             fill
           />
         )}
@@ -57,4 +58,4 @@ const CollabItem: FC<CollabItemProps> = (props: CollabItemProps) => {
   );
 };
 
-export default CollabItem;
+export default memo(CollabItem);

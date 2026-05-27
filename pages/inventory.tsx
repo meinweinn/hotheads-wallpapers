@@ -37,7 +37,6 @@ const Home: NextPage = () => {
         tokens.map(async (token) => {
           if (token.name.includes("Hot Head")) {
             const uri = token.uri;
-            console.log(token.name);
             try {
               await axios.get(uri).then((r) => {
                 // console.log(uri, r.data);
@@ -49,7 +48,6 @@ const Home: NextPage = () => {
           }
         })
       );
-      console.log("tokens ", jsonArr);
       setMetadata(jsonArr);
     } catch (e: any) {
       console.error("getTokens ", e.message);
@@ -160,7 +158,8 @@ const Home: NextPage = () => {
             src={imageModal}
             fill={true}
             alt="Image"
-            objectFit="contain"
+            sizes="100vw"
+            style={{ objectFit: "contain" }}
             className={`rounded`}
             // onLoadingComplete={() => setImageLoaded(true)}
           />
