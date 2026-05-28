@@ -14,10 +14,22 @@ const REQUIRED_ENV_VARS = [
   "GOOGLE_SHEET_TAB",
   "GOOGLE_CLIENT_EMAIL",
   "GOOGLE_PRIVATE_KEY",
+  "NETWORK_ALLOWED_TELEGRAMS",
 ] as const;
 
 const getMissingEnvVars = () =>
   REQUIRED_ENV_VARS.filter((envVar) => !process.env[envVar]?.trim());
+
+const normalizeTelegramUsername = (username: string) =>
+  username.trim().replace(/^@+/, "").toLowerCase();
+
+const getAllowedTelegramUsernames = () =>
+  new Set(
+    (process.env.NETWORK_ALLOWED_TELEGRAMS ?? "")
+      .split(/[\s,;]+/)
+      .map(normalizeTelegramUsername)
+      .filter(Boolean)
+  );
 
 export default async function handler(
   req: NextApiRequest,
@@ -44,6 +56,10 @@ export default async function handler(
 
   if (!telegram || !xUsername || !wallet || !twitterFollow) {
     return res.status(400).json({ error: "Invalid application payload." });
+  }
+
+  if (!getAllowedTelegramUsernames().has(normalizeTelegramUsername(telegram))) {
+    return res.status(403).json({ error: "Telegram username is not eligible." });
   }
 
   try {

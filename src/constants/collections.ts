@@ -49,7 +49,7 @@ const holderById: Record<number, string> = {
   46: "Cornel",
   47: "Pearly",
   48: "BEAST",
-  49: "Krisk",
+  49: "GKS",
   50: "Somdot",
   51: "Draco",
   52: "Suckmyleg",
@@ -384,7 +384,7 @@ const collectionItems: Collection[] = [
   {
     id: 49,
     src: "/images/hotheads/hh_49/PFP/image.png",
-    url: "https://x.com/kriskd9",
+    url: "",
     name: "Raver",
   },
   /* 50's */

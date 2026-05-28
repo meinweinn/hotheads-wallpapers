@@ -40,6 +40,7 @@ const Network: NextPage = () => {
       return;
     }
 
+    setFormError("");
     setSubmitState("submitting");
 
     try {
@@ -52,13 +53,15 @@ const Network: NextPage = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Application request failed.");
+        const payload = await response.json().catch(() => null);
+        throw new Error(payload?.error ?? "Application request failed.");
       }
 
       setSubmitState("submitted");
       window.setTimeout(() => setSubmitState("idle"), 1200);
     } catch (error) {
       console.error(error);
+      setFormError(error instanceof Error ? error.message : "Application request failed.");
       setSubmitState("failed");
       window.setTimeout(() => setSubmitState("idle"), 1600);
     }
@@ -369,6 +372,11 @@ const Network: NextPage = () => {
                           </li>
                         </ol>
                       </div>
+                      {formError && (
+                        <div className="text-custom-light-red text-center text-[10px] uppercase">
+                          {formError}
+                        </div>
+                      )}
                       <div className="flex justify-center pt-2">
                         <button
                           className={`bg-button bg-cover w-[171.5px] h-[56px] text-[10px] uppercase transition-all ${
