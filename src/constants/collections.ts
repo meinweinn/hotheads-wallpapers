@@ -575,13 +575,13 @@ const collectionItems: Collection[] = [
     id: 80,
     src:"/images/hotheads/hh_80/PFP/image.png",
     url:"https://x.com/lemmaxmr",
-    name:""
+    name:"Metroid"
   },
   {
     id: 81,
     src:"/images/hotheads/hh_81/PFP/image.png",
     url:"https://x.com/JMY900",
-    name:""
+    name:"Raven"
   },
   // {
   //   id: 82,
