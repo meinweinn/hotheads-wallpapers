@@ -26,7 +26,7 @@ const holderById: Record<number, string> = {
   23: "Nick",
   24: "Wynx",
   25: "Sqalef",
-  26: "Tres",
+  26: "Peter",
   27: "Gaius",
   28: "Justsomeguy",
   29: "Meepno",
@@ -245,7 +245,7 @@ const collectionItems: Collection[] = [
   {
     id: 26,
     src: "/images/hotheads/hothead_character_026.png",
-    url: "https://x.com/TresFlames031",
+    url: "https://x.com/_0xpeter_",
     name: "Ash",
   },
   {
